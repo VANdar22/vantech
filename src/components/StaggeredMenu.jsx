@@ -25,9 +25,10 @@ export const StaggeredMenu = ({
 
   const panelRef = useRef(null);
   const panelStyle = { 
-  backgroundColor: '#0E38B1 !important',
-  background: '#0E38B1 !important' 
-};
+    background: 'linear-gradient(135deg, #0E38B1 0%, #3A6BC8 50%, #5E8BFF 100%) !important',
+    backgroundSize: '200% 200%',
+    animation: 'gradientBG 15s ease infinite',
+  };
   const preLayersRef = useRef(null);
   const preLayerElsRef = useRef([]);
 

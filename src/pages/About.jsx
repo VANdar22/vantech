@@ -57,7 +57,7 @@ const aboutData = {
     align: "center"
   },
   header: {
-    title: "ABOUT THE SCHOOL",
+    title: "ABOUT ",
     fontSize: "3rem",
     fontWeight: 600,
     fontFamily: "Montserrat",
@@ -73,7 +73,7 @@ const aboutData = {
       paragraphs: [
         {
           text: [
-            "Welcome to Obuasi Complex Junior High School, a vibrant educational institution located in the heart of Obuasi, Ashanti Region. Since our establishment, we have been committed to providing quality education and fostering academic excellence among our students. Our school prides itself on a rich tradition of academic achievement and holistic development. We offer a comprehensive curriculum that prepares students for both academic success and personal growth, supported by our team of dedicated educators. At Obuasi Complex JHS, we believe in nurturing well-rounded individuals who are prepared to meet the challenges of the modern world while maintaining strong moral values and community spirit."
+            "Obuasi Complex JHS is a top-tier junior high school in Obuasi, Ashanti Region, known for academic excellence and holistic education. The school offers a comprehensive curriculum with modern facilities, including science/computer labs and a well-stocked library. Students excel in academics and competitions, supported by dedicated teachers and diverse extracurricular activities. The school fosters a nurturing environment that emphasizes character development, community values, and prepares students for future success. With a strong alumni network and commitment to innovation, Obuasi Complex JHS shapes well-rounded individuals ready to become tomorrow's leaders."
           ],
           className: "text-base sm:text-lg text-gray-800 leading-normal font-['Montserrat']"
         },

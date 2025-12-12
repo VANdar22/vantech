@@ -139,22 +139,22 @@ const HeroSection = () => {
             transition={{ duration: 0.6 }}
             className="w-full text-center md:text-start py-8 md:py-0"
           >
-            <h1 className="font-['Montserrat'] text-black/70">
+            <h1 className="font-['Montserrat'] bg-gradient-to-r from-[#0E38B1] via-[#3A6BC8] to-[#5E8BFF] bg-clip-text text-transparent">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4 sm:px-0">
                 <div className="text-center sm:text-left">
-                  <div className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight whitespace-nowrap tracking-tight text-[#3A6BC8]/90">
+                  <div className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight whitespace-nowrap tracking-tight">
                     Learning That <span className="hidden sm:inline">Feels Like Play</span>
                   </div>
-                  <div className="text-4xl sm:text-5xl md:text-6xl font-bold sm:hidden text-[#0E38B1]">
+                  <div className="text-4xl sm:text-5xl md:text-6xl font-bold sm:hidden">
                     Feels Like Play
                   </div>
                 </div>
-                <div className="relative">
+                <div className="relative flex items-center justify-center w-20 h-20 sm:w-18 sm:h-18 md:w-20 md:h-20">
                   <div className="absolute inset-0 bg-yellow-400 mix-blend-multiply rounded-full opacity-70"></div>
                   <img 
                     src={smileImage} 
                     alt="Smile" 
-                    className="h-20 w-40 sm:h-16 sm:w-24 md:h-20 md:w-20 transform transition-transform duration-300 hover:scale-110 object-contain relative z-10" 
+                    className="h-16 w-16 sm:h-14 sm:w-14 md:h-16 md:w-16 transform transition-transform duration-300 hover:scale-110 object-contain relative z-10" 
                   />
                 </div>
               </div>

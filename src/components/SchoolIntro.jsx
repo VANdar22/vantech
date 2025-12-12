@@ -90,10 +90,10 @@ const SchoolIntro = () => {
             className="text-2xl sm:text-3xl md:text-4xl font-['Clash_Display'] font-medium text-black/80
             leading-relaxed max-w-5xl mx-auto text-center tracking-wide pt-20"
           >
-            At <span className="text-[#0E38B1] text-4xl sm:text-5xl font-bold">Obuase Complex JHS</span>, we believe education should <span className="text-[#0E38B1] text-4xl sm:text-5xl font-bold">inspire</span>. 
-            Our classrooms are <span className="text-[#0E38B1] text-4xl sm:text-5xl font-bold">lively</span>, our teachers are <span className="text-[#0E38B1] text-4xl sm:text-5xl font-bold">supportive</span>, 
-            and our students are full of <span className="text-[#0E38B1] text-4xl sm:text-5xl font-bold">potential</span>. 
-            Join a community that <span className="text-[#0E38B1] text-4xl sm:text-5xl font-bold">loves to learn</span> and <span className="text-[#0E38B1] text-4xl sm:text-5xl font-bold">aims high</span>.
+            At <span className="text-[#0E38B1] text-2xl sm:text-4xl font-bold">Obuase Complex JHS</span>, we believe education should <span className="text-[#0E38B1] text-2xl sm:text-4xl font-bold">inspire</span>. 
+            Our classrooms are <span className="text-[#0E38B1] text-2xl sm:text-4xl font-bold">lively</span>, our teachers are <span className="text-[#0E38B1] text-2xl sm:text-4xl font-bold">supportive</span>, 
+            and our students are full of <span className="text-[#0E38B1] text-2xl sm:text-4xl font-bold">potential</span>. 
+            Join a community that <span className="text-[#0E38B1] text-2xl sm:text-4xl font-bold">loves to learn</span> and <span className="text-[#0E38B1] text-2xl sm:text-4xl font-bold">aims high</span>.
           </div>
         </div>
       </div>

@@ -35,7 +35,7 @@ const Contact = () => {
         
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-6">
-            <div className="bg-white border border-gray-200 p-6">
+            <div className="bg-white ">
               <h2 className="text-xl font-semibold text-gray-800 mb-4">Contact Information</h2>
               
               <div className="space-y-5">
@@ -95,7 +95,7 @@ const Contact = () => {
             </div>
           </div>
           
-          <div className="border border-gray-200 p-6">
+          <div className="">
             <h2 className="text-xl font-semibold text-gray-800 mb-5">Contact Form</h2>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
