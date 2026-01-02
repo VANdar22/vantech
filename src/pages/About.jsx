@@ -116,31 +116,105 @@ const About = () => {
   const { container, header, headerUnderline, sections } = aboutData;
 
   const containerRef = useRef(null);
+  const topSvgRef = useRef(null);
+  const bottomSvgRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.1 });
+  const isTopSvgInView = useInView(topSvgRef, { once: true });
+  const isBottomSvgInView = useInView(bottomSvgRef, { once: true });
 
   return (
     <div className="relative min-h-screen flex flex-col overflow-x-hidden bg-gradient-to-b from-white to-[#EA1821]/20">
       {/* Top Left SVG */}
-      <div className="absolute top-0 left-0 w-24 h-24 md:w-32 md:h-32 z-10">
-        <svg 
+      <motion.div 
+        ref={topSvgRef}
+        className="absolute top-0 left-0 w-24 h-24 md:w-32 md:h-32 z-10 cursor-pointer"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={isTopSvgInView ? { opacity: 1, scale: 1 } : {}}
+        whileHover={{ scale: 1.1 }}
+        transition={{ 
+          duration: 0.8, 
+          delay: 0.2,
+          hover: { duration: 0.2 }
+        }}
+      >
+        <motion.svg 
           viewBox="0 0 256 256" 
           className="w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
+          initial={{ rotate: -90 }}
+          animate={isTopSvgInView ? { rotate: 0 } : {}}
+          transition={{ 
+            rotate: { 
+              duration: 1.2, 
+              ease: "easeOut",
+              delay: 0.4
+            }
+          }}
         >
-          <path d="M 152 70.059 L 201.539 20.519 L 235.48 54.461 L 185.941 104 L 256 104 L 256 152 L 185.941 152 L 235.48 201.539 L 201.539 235.48 L 152 185.941 L 152 256 L 104 256 L 104 185.941 L 54.46 235.48 L 20.52 201.539 L 70.059 152 L 0 152 L 0 104 L 70.059 104 L 20.519 54.46 L 54.461 20.52 L 104 70.059 L 104 0 L 152 0 Z" fill="#EA1821" />
-        </svg>
-      </div>
+          <motion.path 
+            d="M 152 70.059 L 201.539 20.519 L 235.48 54.461 L 185.941 104 L 256 104 L 256 152 L 185.941 152 L 235.48 201.539 L 201.539 235.48 L 152 185.941 L 152 256 L 104 256 L 104 185.941 L 54.46 235.48 L 20.52 201.539 L 70.059 152 L 0 152 L 0 104 L 70.059 104 L 20.519 54.46 L 54.461 20.52 L 104 70.059 L 104 0 L 152 0 Z" 
+            fill="#EA1821"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={isTopSvgInView ? { pathLength: 1, opacity: 1 } : {}}
+            whileHover={{ 
+              fill: "#ff4d4d",
+              transition: { duration: 0.2 }
+            }}
+            transition={{
+              duration: 1.5,
+              ease: "easeInOut",
+              delay: 0.2,
+              fill: { duration: 0.2 }
+            }}
+          />
+        </motion.svg>
+      </motion.div>
       
       {/* Bottom Right SVG */}
-      <div className="absolute bottom-0 right-0 w-24 h-24 md:w-32 md:h-32 z-10">
-        <svg 
+      <motion.div 
+        ref={bottomSvgRef}
+        className="absolute bottom-0 right-0 w-24 h-24 md:w-32 md:h-32 z-10 cursor-pointer"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={isBottomSvgInView ? { opacity: 1, scale: 1 } : {}}
+        whileHover={{ scale: 1.1 }}
+        transition={{ 
+          duration: 0.8, 
+          delay: 0.4,
+          hover: { duration: 0.2 }
+        }}
+      >
+        <motion.svg 
           viewBox="0 0 256 256" 
           className="w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
+          initial={{ rotate: 90 }}
+          animate={isBottomSvgInView ? { rotate: 0 } : {}}
+          transition={{ 
+            rotate: { 
+              duration: 1.2, 
+              ease: "easeOut",
+              delay: 0.6
+            }
+          }}
         >
-          <path d="M 152 70.059 L 201.539 20.519 L 235.48 54.461 L 185.941 104 L 256 104 L 256 152 L 185.941 152 L 235.48 201.539 L 201.539 235.48 L 152 185.941 L 152 256 L 104 256 L 104 185.941 L 54.46 235.48 L 20.52 201.539 L 70.059 152 L 0 152 L 0 104 L 70.059 104 L 20.519 54.46 L 54.461 20.52 L 104 70.059 L 104 0 L 152 0 Z" fill="#EA1821" />
-        </svg>
-      </div>
+          <motion.path 
+            d="M 152 70.059 L 201.539 20.519 L 235.48 54.461 L 185.941 104 L 256 104 L 256 152 L 185.941 152 L 235.48 201.539 L 201.539 235.48 L 152 185.941 L 152 256 L 104 256 L 104 185.941 L 54.46 235.48 L 20.52 201.539 L 70.059 152 L 0 152 L 0 104 L 70.059 104 L 20.519 54.46 L 54.461 20.52 L 104 70.059 L 104 0 L 152 0 Z" 
+            fill="#EA1821"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={isBottomSvgInView ? { pathLength: 1, opacity: 1 } : {}}
+            whileHover={{ 
+              fill: "#ff4d4d",
+              transition: { duration: 0.2 }
+            }}
+            transition={{
+              duration: 1.5,
+              ease: "easeInOut",
+              delay: 0.4,
+              fill: { duration: 0.2 }
+            }}
+          />
+        </motion.svg>
+      </motion.div>
       <div 
         className="flex-grow mt-16 sm:mt-20"
         style={{

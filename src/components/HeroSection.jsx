@@ -1,19 +1,42 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 const HeroSection = () => {
-  // Animation variants
-  const fadeUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.6,
-        delay: 0.1,
-        ease: [0.16, 1, 0.3, 1]
-      }
-    }
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  
+  // Split text into characters with bounce effect
+  const SplitText = ({ text, className, delay = 0 }) => {
+    return (
+      <div className={className} style={{ display: 'inline-block', whiteSpace: 'pre' }}>
+        {text.split('').map((char, i) => (
+          <motion.span
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? {
+              opacity: 1,
+              y: 0,
+              transition: {
+                delay: delay + (i * 0.03),
+                type: 'spring',
+                damping: 15,
+                stiffness: 200,
+                mass: 0.5,
+              }
+            } : {}}
+            style={{ 
+              display: 'inline-block', 
+              whiteSpace: 'pre',
+              willChange: 'transform, opacity',
+              transformOrigin: 'bottom'
+            }}
+          >
+            {char === ' ' ? '\u00A0' : char}
+          </motion.span>
+        ))}
+      </div>
+    );
   };
 
   // Frame corner component
@@ -63,20 +86,9 @@ const HeroSection = () => {
           
           {/* Content Container */}
           <div className="relative">
-            <motion.h1
+            <motion.div 
+              ref={ref}
               className="mx-auto font-bold leading-tight text-gray-900"
-              initial="hidden"
-              animate="visible"
-              variants={{
-                ...fadeUp,
-                visible: {
-                  ...fadeUp.visible,
-                  transition: {
-                    ...fadeUp.visible.transition,
-                    delay: 0.2
-                  }
-                }
-              }}
               style={{
                 textTransform: 'uppercase',
                 fontFamily: 'clash display',
@@ -91,16 +103,49 @@ const HeroSection = () => {
               }}
             >
               <div className="flex flex-col space-y-1 sm:space-y-2 md:space-y-3">
-                <div className="block">we make</div>
-                <div className="block">therefore</div>
-                <div className="block">we exist</div>
+                <div className="block">
+                  <SplitText text="we make" delay={0.2} />
+                </div>
+                <div className="block">
+                  <SplitText text="therefore" delay={0.4} />
+                </div>
+                <div className="block">
+                  <SplitText text="we exist" delay={0.6} />
+                </div>
               </div>
               <div className="mt-4 sm:mt-6 space-y-1">
-              <div className="explora text-xl sm:text-2xl md:text-3xl font-light text-[#EA1821]">designed in accra, ghana</div>
-
-                <div className="text-sm sm:text-base md:text-lg text-[#1B1D1C]">est 2023</div>
+                <motion.div 
+                  className="explora text-xl sm:text-2xl md:text-3xl font-light text-[#EA1821]"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={isInView ? {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      delay: 1.2,
+                      duration: 0.8,
+                      ease: [0.22, 1, 0.36, 1]
+                    }
+                  } : {}}
+                >
+                  designed in accra
+                </motion.div>
+                <motion.div 
+                  className="text-sm sm:text-base md:text-lg text-[#1B1D1C]"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={isInView ? {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      delay: 1.4,
+                      duration: 0.8,
+                      ease: [0.22, 1, 0.36, 1]
+                    }
+                  } : {}}
+                >
+                  est 2023
+                </motion.div>
               </div>
-            </motion.h1>
+            </motion.div>
           </div>
         </div>
       </div>

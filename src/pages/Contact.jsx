@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { motion, useInView } from 'framer-motion';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -23,12 +24,61 @@ const Contact = () => {
     console.log('Form submitted:', formData);
   };
 
+  const headingRef = useRef(null);
+  const isInView = useInView(headingRef, { once: true, amount: 0.5 });
+
+  const textLines = ["Ready to", "make it", "real?"];
+  
+  // Animation variants for text characters
+  const container = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.03, delayChildren: 0.04 * i }
+    })
+  };
+
+  const child = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100
+      }
+    },
+    hidden: {
+      opacity: 0,
+      y: 20,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100
+      }
+    }
+  };
+
+  // Split text into characters
+  const splitText = (text) => {
+    return text.split('').map((char, i) => (
+      <motion.span
+        key={i}
+        variants={child}
+        style={{ display: 'inline-block' }}
+      >
+        {char === ' ' ? '\u00A0' : char}
+      </motion.span>
+    ));
+  };
+
   return (
     <div className="min-h-screen pt-20 px-4 bg-white">
       <div className="max-w-6xl mx-auto py-12 px-4">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="space-y-8">
-            <h1 
+            <motion.div 
+              ref={headingRef}
               className="font-bold leading-none text-gray-900"
               style={{
                 fontFamily: 'Clash Display',
@@ -39,47 +89,100 @@ const Contact = () => {
                 textTransform: 'uppercase'
               }}
             >
-              <div className="flex flex-col">
-                <div className="block text-[#ea1821]">Ready to</div>
-                <div className="block text-[#ea1821]">make it</div>
-                <div className="block text-[#ea1821]">real?</div>
-              </div>
-            </h1>
-            <p className="text-lg text-gray-800 max-w-lg" style={{ fontFamily: 'Clash Display' }}>
+              <motion.div 
+                className="flex flex-col"
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
+                variants={container}
+              >
+                {textLines.map((line, i) => (
+                  <motion.div 
+                    key={i} 
+                    className="block text-[#ea1821] overflow-hidden"
+                    custom={i}
+                    variants={container}
+                  >
+                    {splitText(line)}
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+            <motion.p 
+              className="text-lg text-gray-800 max-w-lg" 
+              style={{ fontFamily: 'Clash Display' }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { 
+                opacity: 1, 
+                y: 0,
+                transition: {
+                  delay: 0.6, // Slight delay after the heading animation
+                  duration: 0.8,
+                  ease: [0.22, 1, 0.36, 1]
+                }
+              } : {}}
+            >
               Have a project in mind or want to discuss how we can work together? We'd love to hear from you. 
               Fill out the form and our team will get back to you as soon as possible.
-            </p>
-            <div className="pt-4 -ml-5">
-              <div className="flex space-x-6">
-                <a 
-                  href="https://instagram.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="p-4 hover:bg-gray-100/50 rounded-full transition-colors"
-                  aria-label="Instagram"
+            </motion.p>
+            <motion.div 
+              className="pt-4 -ml-5"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { 
+                opacity: 1, 
+                y: 0,
+                transition: {
+                  delay: 0.8, // Slightly after the subtext
+                  duration: 0.8,
+                  ease: [0.22, 1, 0.36, 1],
+                  staggerChildren: 0.1
+                }
+              } : {}}
+            >
+              <motion.div className="flex space-x-6">
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <FaInstagram className="w-10 h-10 text-black hover:text-[#C41220] transition-colors" />
-                </a>
-                <a 
-                  href="https://linkedin.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="p-4 hover:bg-gray-100/50 rounded-full transition-colors"
-                  aria-label="LinkedIn"
+                  <a 
+                    href="https://instagram.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-4 hover:bg-gray-100/50 rounded-full transition-colors block"
+                    aria-label="Instagram"
+                  >
+                    <FaInstagram className="w-10 h-10 text-black hover:text-[#C41220] transition-colors" />
+                  </a>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <FaLinkedin className="w-10 h-10 text-black hover:text-[#C41220] transition-colors" />
-                </a>
-                <a 
-                  href="https://github.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="p-4 hover:bg-gray-100/50 rounded-full transition-colors"
-                  aria-label="GitHub"
+                  <a 
+                    href="https://linkedin.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-4 hover:bg-gray-100/50 rounded-full transition-colors block"
+                    aria-label="LinkedIn"
+                  >
+                    <FaLinkedin className="w-10 h-10 text-black hover:text-[#C41220] transition-colors" />
+                  </a>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <FaGithub className="w-10 h-10 text-black hover:text-[#C41220] transition-colors" />
-                </a>
-              </div>
-            </div>
+                  <a 
+                    href="https://github.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-4 hover:bg-gray-100/50 rounded-full transition-colors block"
+                    aria-label="GitHub"
+                  >
+                    <FaGithub className="w-10 h-10 text-black hover:text-[#C41220] transition-colors" />
+                  </a>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </div>
           
           <div className="bg-white p-8 rounded-lg" style={{ fontFamily: 'Clash Display' }}>

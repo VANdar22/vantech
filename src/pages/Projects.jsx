@@ -28,7 +28,7 @@ const projects = [
       id: 'aateek',
       title: 'AAteek',
       subtitle: 'Vehicle Booking System',
-      categories: ['Mobile App', 'Transportation'],
+      categories: ['Web Application', 'Transportation'],
       description: 'Automobile booking system for easy vehicle reservations. AAteek simplifies the process of renting vehicles with a user-friendly interface, real-time availability checks, and secure payment processing. The app includes features like GPS tracking, driver verification, and 24/7 customer support.',
       cta: {
         label: 'Visit Live Site',
@@ -173,7 +173,7 @@ const projects = [
       id: 'classscope',
       title: 'ClassScope',
       subtitle: 'School Management Platform',
-      categories: ['Web Application', 'Education'],
+      categories: ['Mobile Application', 'Education'],
       description: 'Comprehensive school management platform for educational institutions. ClassScope streamlines administrative tasks, student management, and communication between teachers, students, and parents in one unified platform. The system includes features like attendance tracking, grade management, and a built-in messaging system.',
       cta: null
     },

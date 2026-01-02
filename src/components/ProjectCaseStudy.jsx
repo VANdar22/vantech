@@ -168,9 +168,36 @@ const ProjectCaseStudy = ({ project }) => {
       >
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-8">
-            {/* Main Project Image Carousel */}
-            <div className="w-full max-w-xl aspect-video h-80 overflow-hidden shadow-lg rounded-lg relative mx-auto">
-              {project.media.images && project.media.images.length > 0 ? (
+            {/* Main Project Image Carousel with Curtain Reveal */}
+            <div className="w-full max-w-xl aspect-video h-80 overflow-hidden relative mx-auto">
+              <motion.div 
+                className="absolute inset-0 z-10"
+                style={{ backgroundColor: project.theme.backgroundColor }}
+                initial={{ x: '0%' }}
+                whileInView={{ 
+                  x: '100%',
+                  transition: {
+                    duration: 1.8,
+                    ease: [0.76, 0, 0.24, 1],
+                    delay: 0.3
+                  }
+                }}
+                viewport={{ once: true, amount: 1 }}
+              />
+              <motion.div 
+                className="w-full h-full relative"
+                initial={{ opacity: 0 }}
+                whileInView={{ 
+                  opacity: 1,
+                  transition: {
+                    duration: 0.6,
+                    delay: 0.8,
+                    ease: 'easeOut'
+                  }
+                }}
+                viewport={{ once: true, amount: 1 }}
+              >
+                {project.media.images && project.media.images.length > 0 ? (
                 <>
                   <div 
                     className="w-full h-full relative"
@@ -289,8 +316,9 @@ const ProjectCaseStudy = ({ project }) => {
               ) : (
                 <div className="w-full h-full flex items-center justify-center bg-gray-200">
                   <p className="text-gray-500">No images available</p>
-                </div>
-              )}
+                  </div>
+                )}
+              </motion.div>
             </div>
 
             {/* Title and Subtitle */}
