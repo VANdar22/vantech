@@ -392,12 +392,21 @@ export const StaggeredMenu = ({
           <div
             className="sm-logo flex items-center select-none pointer-events-auto"
             aria-label="Logo">
-            <img
-              src={logoUrl || '/src/assets/logos/reactbits-gh-white.svg'}
-              alt="Logo"
-              className="sm-logo-img block h-8 w-auto object-contain"
-              draggable={false}
-              height={24} />
+            <div className="sm-logo-img-wrapper" style={{ height: '60px', display: 'flex', alignItems: 'center' }}>
+              <img
+                src={logoUrl || '/src/assets/logos/reactbits-gh-white.svg'}
+                alt="Logo"
+                className="block w-auto max-h-full object-contain"
+                style={{
+                  height: '100%',
+                  width: 'auto',
+                  maxWidth: '200px',
+                  minWidth: '120px',
+                  transition: 'all 0.3s ease',
+                }}
+                draggable={false}
+              />
+            </div>
           </div>
 
           <button
