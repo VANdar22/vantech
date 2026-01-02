@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './assets/logo.png';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import StaggeredMenu from './components/StaggeredMenu';
@@ -7,6 +7,7 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Gallery from './pages/Gallery';
+import SplashScreen from './components/SplashScreen';
 
 const menuItems = [
   { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
@@ -21,6 +22,23 @@ const socialItems = [
 ];
 
 function App() {
+  const [showSplash, setShowSplash] = useState(() => {
+    return !sessionStorage.getItem('hasSeenSplash');
+  });
+
+  const handleSplashComplete = () => {
+    sessionStorage.setItem('hasSeenSplash', 'true');
+    setShowSplash(false);
+  };
+
+  if (showSplash) {
+    return (
+      <div className="fixed inset-0 z-[9999] bg-white flex items-center justify-center">
+        <SplashScreen onComplete={handleSplashComplete} />
+      </div>
+    );
+  }
+
   return (
     <Router>
       <div className="min-h-screen w-full flex flex-col overflow-hidden">
