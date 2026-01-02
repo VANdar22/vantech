@@ -1,0 +1,15 @@
+{
+  "name": "VANtech",
+  "short_name": "VANtech",
+  "icons": [
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#EA1821",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

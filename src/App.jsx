@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from './assets/logo.png';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import StaggeredMenu from './components/StaggeredMenu';
 import Home from './pages/Home';
@@ -28,7 +29,7 @@ function App() {
           <StaggeredMenu
             position="right"
             items={menuItems}
-            logoUrl="/src/assets/logo.png"
+            logoUrl={logo}
             socialItems={socialItems}
             displaySocials={true}
             openMenuButtonColor="transparent"

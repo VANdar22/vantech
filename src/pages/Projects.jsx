@@ -76,7 +76,7 @@ const projects = [
     project: {
       id: 'midak-research',
       title: 'Midak Research',
-      subtitle: 'Advanced Data Analytics Platform',
+      subtitle : 'Advanced Data Analytics Platform',
       categories: ['Web Application', 'Data Science'],
       description: 'Midak Research is a cutting-edge data analytics platform that provides powerful insights through machine learning and statistical analysis. The platform features interactive dashboards, real-time data processing, and advanced visualization tools. Built with modern web technologies, it offers a seamless experience for data scientists and business analysts alike.',
       cta: {
