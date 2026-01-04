@@ -247,13 +247,13 @@ const Services = () => {
               <p className="text-sm uppercase tracking-[0.3em]" style={{ color: `${accentColors.main}80` }}>Services</p>
             </AnimatedText>
             <AnimatedText delay={0.2} split>
-              <h1 className="mt-4 text-2xl font-['Clash_Display'] font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl ">
+              <h1 className="mt-4 text-3xl font-['Clash_Display'] font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl ">
                 We turn ideas into awesome digital products
               </h1>
             </AnimatedText>
           </div>
           <AnimatedText delay={0.2}>
-            <div className="flex-1 max-w-xl space-y-6 text-lg md:text-lg text-gray-600 leading-relaxed">
+            <div className="flex-1 max-w-xl space-y-6 text-base md:text-lg text-gray-600 leading-relaxed">
               <div className="[&>span]:inline-block [&>span]:opacity-95">
                 <AnimatedText split={false} delay={0.25}>
                 We help you turn complex ideas into clear, scalable digital products.
@@ -266,15 +266,15 @@ Every engagement blends strategic thinking, thoughtful design, and reliable engi
                   href="/contact"
                   className="inline-flex items-center gap-2 rounded-full border border-black px-6 py-3 text-base font-semibold transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
                   style={{
-                    backgroundColor: 'transparent',
-                    color: '#1a1a1a',
-                    borderColor: '#1a1a1a',
+                    backgroundColor: '#EA1821',
+                    color: 'white',
+                    borderColor: '#EA1821',
                     '--tw-shadow': '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'
                   }}
                   whileHover={{
-                    backgroundColor: accentColors.main,
+                    backgroundColor: '#D40000',
                     color: 'white',
-                    borderColor: accentColors.main,
+                    borderColor: '#D40000',
                     boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)'
                   }}
                   whileTap={{ scale: 0.98 }}
@@ -320,29 +320,29 @@ Every engagement blends strategic thinking, thoughtful design, and reliable engi
                   </div>
                   <h3 className="text-3xl font-bold leading-tight tracking-tight text-gray-900 md:text-4xl">{capability.title}</h3>
                 </div>
-                <p className="text-gray-700 text-xl leading-relaxed max-w-3xl">{capability.body}</p>
+                <p className="text-gray-700 text-lg md:text-xl leading-relaxed max-w-3xl">{capability.body}</p>
                 <div className="space-y-4">
                   {capability.bullets.map((item, index) => (
-                    <li key={index} className="flex items-center gap-2 text-xl">
+                    <li key={index} className="flex items-center gap-2 text-lg md:text-xl">
                       <span className="text-gray-600">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
                 </div>
                 <motion.button 
-                  className="group inline-flex items-center gap-2 rounded-full border border-gray-900 px-6 py-2 text-sm font-semibold transition-all duration-300 ease-in-out hover:shadow-md"
+                  className="group inline-flex items-center gap-2 rounded-full border px-6 py-3 text-base font-semibold transition-all duration-300 ease-in-out hover:shadow-lg"
                   style={{
-                    backgroundColor: 'transparent',
-                    color: '#1a1a1a',
-                    borderColor: '#1a1a1a',
-                    '--tw-shadow': '0 1px 2px 0 rgb(0 0 0 / 0.05)'
+                    backgroundColor: '#EA1821',
+                    color: 'white',
+                    borderColor: '#EA1821',
+                    '--tw-shadow': '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'
                   }}
                   whileHover={{
-                    backgroundColor: accentColors.main,
+                    backgroundColor: '#D40000',
                     color: 'white',
-                    borderColor: accentColors.main,
+                    borderColor: '#D40000',
                     scale: 1.05,
-                    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'
+                    boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)'
                   }}
                   whileTap={{ scale: 0.98 }}
                 >

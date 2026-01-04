@@ -39,26 +39,21 @@ const HeroSection = () => {
     );
   };
 
-  // Frame corner component
+  // Frame corner component - Top corners only
   const CornerMarkers = () => (
     <>
       {/* Top Left */}
       <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-[#EA1821]" />
       {/* Top Right */}
       <div className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-[#EA1821]" />
-      {/* Bottom Left */}
-      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-[#EA1821]" />
-      {/* Bottom Right */}
-      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-[#EA1821]" />
     </>
   );
 
   return (
     <section 
-      className="relative flex items-center justify-center min-h-screen bg-[#f5f5f5]"
+      className="relative flex items-center justify-center min-h-[90vh] sm:min-h-screen bg-[#f5f5f5]"
       style={{
-        padding: '60px 24px',
-        minHeight: '100vh',
+        padding: '40px 16px',
         position: 'relative',
         overflow: 'hidden'
       }}
@@ -66,9 +61,9 @@ const HeroSection = () => {
       {/* Frame Corners */}
       <CornerMarkers />
       
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto text-center p-6 sm:p-8 md:p-12">
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto text-center p-4 sm:p-6 md:p-8 lg:p-12">
         {/* Double Border Effect */}
-        <div className="relative p-6 sm:p-8 md:p-12">
+        <div className="relative p-4 sm:p-6 md:p-8 lg:p-12">
           {/* Primary Border */}
           <div className="absolute inset-0 border-2 sm:border-3 md:border-4 border-[#D40000]" />
           
@@ -92,32 +87,32 @@ const HeroSection = () => {
               style={{
                 textTransform: 'uppercase',
                 fontFamily: '"Climate Crisis", sans-serif',
-                fontSize: 'clamp(2.25rem, 8vw, 5rem)',
+                fontSize: 'clamp(2rem, 9vw, 5rem)',
                 fontWeight: 400,
-                lineHeight: 1,
-                letterSpacing: '0.02em',
-
+                lineHeight: '0.9',
+                letterSpacing: '0.01em',
                 maxWidth: '100%',
                 margin: '0 auto',
-                padding: '0 8px',
+                padding: '0 4px',
+                wordSpacing: '-0.05em',
                 fontVariationSettings: '"wght" 400',
                 fontFeatureSettings: '"tnum" 1, "ss01" 1, "ss02" 1'
               }}
             >
-              <div className="flex flex-col space-y-1 sm:space-y-2 md:space-y-3">
-                <div className="block">
+              <div className="flex flex-col items-center space-y-0 sm:space-y-1 md:space-y-2 lg:space-y-3">
+                <div className="text-center">
                   <SplitText text="we make" delay={0.2} />
                 </div>
-                <div className="block">
+                <div className="text-center">
                   <SplitText text="therefore" delay={0.4} />
                 </div>
-                <div className="block">
+                <div className="text-center">
                   <SplitText text="we exist" delay={0.6} />
                 </div>
               </div>
-              <div className="mt-4 sm:mt-6 space-y-1">
+              <div className="mt-3 sm:mt-5 md:mt-6 space-y-1 text-center">
                 <motion.div 
-                  className="explora text-xl sm:text-2xl md:text-3xl font-light text-[#EA1821]"
+                  className="explora text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-[#EA1821]"
                   initial={{ opacity: 0, y: 10 }}
                   animate={isInView ? {
                     opacity: 1,
@@ -132,7 +127,7 @@ const HeroSection = () => {
                   designed in accra
                 </motion.div>
                 <motion.div 
-                  className="text-sm sm:text-base md:text-lg text-[#1B1D1C]"
+                  className="text-xs sm:text-sm md:text-base lg:text-lg text-[#1B1D1C]"
                   initial={{ opacity: 0, y: 10 }}
                   animate={isInView ? {
                     opacity: 1,

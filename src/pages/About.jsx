@@ -87,7 +87,7 @@ const aboutData = {
             <span key="products-text" className="block mb-6">
               From{" "}
               <span
-                className="font-['Montserrat'] font-bold text-4xl sm:text-2xl"
+                className="font-['Montserrat'] font-bold text-lg sm:text-2xl"
                 style={{ color: "#EA1821" }}
               >
                 ClassScope
@@ -98,7 +98,7 @@ const aboutData = {
                 href="https://midakresearch.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-['Montserrat'] font-bold text-4xl sm:text-2xl hover:underline"
+                className="font-['Montserrat'] font-bold text-lg sm:text-2xl hover:underline"
                 style={{ color: "#EA1821" }}
               >
                 Midak Research

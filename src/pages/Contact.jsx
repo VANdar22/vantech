@@ -27,7 +27,7 @@ const Contact = () => {
   const headingRef = useRef(null);
   const isInView = useInView(headingRef, { once: true, amount: 0.5 });
 
-  const textLines = ["Ready to", "make it", "real?"];
+  const textLines = ["Ready to", "make", "it real?"];
   
   // Animation variants for text characters
   const container = {
@@ -79,22 +79,22 @@ const Contact = () => {
           <div className="space-y-8">
             <motion.div 
               ref={headingRef}
-              className="font-['Climate_Crisis'] text-gray-900 text-4xl md:text-5xl lg:text-6xl leading-none tracking-tight"
-              style={{
-                textTransform: 'uppercase',
-                fontWeight: 400
-              }}
+              className="w-full"
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
             >
               <motion.div 
-                className="flex flex-col"
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
+                className="font-['Climate_Crisis'] text-gray-900 text-4xl md:text-5xl lg:text-6xl leading-none tracking-tight"
+                style={{
+                  textTransform: 'uppercase',
+                  fontWeight: 400
+                }}
                 variants={container}
               >
                 {textLines.map((line, i) => (
                   <motion.div 
                     key={i} 
-                    className="block text-[#ea1821] overflow-hidden"
+                    className="block text-[#ea1821] overflow-hidden w-full whitespace-nowrap"
                     custom={i}
                     variants={container}
                   >
@@ -104,7 +104,7 @@ const Contact = () => {
               </motion.div>
             </motion.div>
             <motion.p 
-              className="text-lg text-gray-800 max-w-lg font-['Montserrat'] font-normal leading-relaxed"
+              className="text-justify text-lg text-gray-800 max-w-lg font-['Montserrat'] font-normal leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { 
                 opacity: 1, 
@@ -120,7 +120,7 @@ const Contact = () => {
               Fill out the form and our team will get back to you as soon as possible.
             </motion.p>
             <motion.div 
-              className="pt-4 -ml-5"
+              className="pt-4"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { 
                 opacity: 1, 
@@ -133,7 +133,7 @@ const Contact = () => {
                 }
               } : {}}
             >
-              <motion.div className="flex space-x-6">
+              <motion.div className="flex justify-center md:justify-start space-x-6">
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
@@ -179,9 +179,8 @@ const Contact = () => {
               </motion.div>
             </motion.div>
           </div>
-          
           <div className="bg-[#f5f5f5] p-8 rounded-lg font-['Montserrat']">
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5 ">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">Name</label>
                 <input
