@@ -143,7 +143,7 @@ const capabilities = [
       label: 'Strategy & Discovery',
       title: 'Clarity before code.',
       body: 'We help you define the right problem before anything is built. This phase aligns stakeholders, reduces risk, and sets a clear direction for product success.',
-      image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80',
+      image: '/src/assets/strategy.png',
       bullets: [
         'Product vision and roadmap definition',
         'User research and stakeholder interviews',
@@ -155,7 +155,7 @@ const capabilities = [
       label: 'Product Design',
       title: 'Design that feels effortless.',
       body: 'We design intuitive, accessible digital experiences that align user needs with business goals.',
-      image: 'https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=80',
+      image: '/src/assets/product.png',
       bullets: [
         'UX research and user journey mapping',
         'UI design systems and visual identity',
@@ -167,7 +167,7 @@ const capabilities = [
       label: 'Software Development',
       title: 'Built to scale and last.',
       body: 'We engineer reliable, maintainable software systems using modern technologies and best practices.',
-      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+      image: '/src/assets/software.png',
       bullets: [
         'Web and mobile application development',
         'Backend systems and APIs',
@@ -179,7 +179,7 @@ const capabilities = [
       label: 'Launch & Enablement',
       title: 'Support beyond delivery.',
       body: 'We help teams launch confidently and operate independently long after handover.',
-      image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80',
+      image: '/src/assets/launch.png',
       bullets: [
         'Deployment and release management',
         'Documentation and team onboarding',
@@ -344,24 +344,28 @@ Every engagement blends strategic thinking, thoughtful design, and reliable engi
                   <span className="transition-transform duration-300 group-hover:translate-x-0.5">↗</span>
                 </motion.button>
               </div>
-              <div className={`relative h-[400px] w-full mx-auto lg:mx-0 lg:w-[90%] ${
-                index % 2 === 0 ? 'lg:ml-auto' : 'lg:mr-auto'
-              }`}>
+              <div className="relative w-full max-w-[500px] h-[300px] mx-auto">
                 <SvgMask 
                   className="h-full w-full"
                   type={index % 2 === 0 ? 'right' : 'left'}
                 >
-                  <img
-                    src={capability.image}
-                    alt={capability.title}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                    loading="lazy"
-                    style={{
-                      objectPosition: 'center',
-                      width: '100%',
-                      height: '100%',
-                    }}
-                  />
+                  <div className="w-full h-full bg-white p-2">
+                    <img
+                      src={capability.image}
+                      alt={capability.title}
+                      className="w-full h-full"
+                      loading="lazy"
+                      style={{
+                        objectPosition: 'center',
+                        objectFit: 'cover',
+                        width: '100%',
+                        height: '100%',
+                        display: 'block',
+                        backfaceVisibility: 'hidden',
+                        transform: 'translateZ(0)'
+                      }}
+                    />
+                  </div>
                 </SvgMask>
               </div>
             </motion.article>

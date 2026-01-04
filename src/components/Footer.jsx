@@ -7,8 +7,9 @@ const Footer = () => {
     title: "Crazy Ideas exist",
     links: [
       { label: "Home", url: "/" },
-      { label: "Contact", url: "/contact" },
+      { label: "Services", url: "/services" },
       { label: "Projects", url: "/projects" },
+      { label: "Contact", url: "/contact" },
     ],
     socials: [
       { platform: "instagram", url: "https://instagram.com" },

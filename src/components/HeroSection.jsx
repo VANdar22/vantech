@@ -144,7 +144,7 @@ const HeroSection = () => {
                     }
                   } : {}}
                 >
-                  est 2023
+                  est 2022
                 </motion.div>
               </div>
             </motion.div>
