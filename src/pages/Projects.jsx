@@ -65,7 +65,7 @@ const projects = [
     theme: {
       backgroundColor: '#0A0C0F', // Deeper, more modern dark background
       textColor: '#FFFFFF',
-      accentColor: '#FF4D4D', // Vibrant red accent for subtitles and interactive elements
+      accentColor: '#E63946', // Darker red accent for better contrast
       font: {
         heading: 'Clash_Display',
         body: 'Montserrat'
@@ -111,9 +111,9 @@ const projects = [
       backgroundImage: null
     },
     theme: {
-      backgroundColor: '#b23c3c',
+      backgroundColor: '#8B0000', // Darker red background
       textColor: '#FFFFFF',
-      accentColor: '#E0B0FF', // Mauve accent color for subtitle
+      accentColor: '#C77DF3', // Darker mauve accent for better contrast
       font: {
         heading: 'Clash_Display',
         body: 'Montserrat'
@@ -159,9 +159,9 @@ const projects = [
       ]
     },
     theme: {
-      backgroundColor: '#c42ac4',
+      backgroundColor: '#8B008B', // Darker purple background
       textColor: '#FFFFFF',
-      accentColor: '#FFD700', // Gold accent color
+      accentColor: '#DAA520', // Darker gold accent for better contrast
       font: {
         heading: 'Clash_Display',
         body: 'Montserrat'

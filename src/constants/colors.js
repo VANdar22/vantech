@@ -1,8 +1,15 @@
 // Primary colors
 export const PRIMARY = '#2c666e';
-export const ACCENT = '#0E38B1'; // Primary blue color
-export const PRIMARY_DARK = '#1d4ed8';
-export const PRIMARY_LIGHT = '#3b82f6';
+export const ACCENT = '#EA1821'; // Red color
+export const PRIMARY_DARK = '#b8141c';
+export const PRIMARY_LIGHT = '#f04a51';
+
+export const accentColors = {
+  main: '#EA1821',
+  light: '#f04a51',
+  dark: '#b8141c',
+  contrastText: '#ffffff'
+};
 
 // Secondary colors
 export const SECONDARY = '#7c3aed';

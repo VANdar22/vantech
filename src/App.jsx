@@ -7,10 +7,12 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Gallery from './pages/Gallery';
+import Services from './pages/Services';
 import SplashScreen from './components/SplashScreen';
 
 const menuItems = [
   { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
+  { label: 'Services', ariaLabel: 'View our services', link: '/services' },
   { label: 'Projects', ariaLabel: 'View our projects', link: '/projects' },
   { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' },
 ];
@@ -46,6 +48,7 @@ function App() {
         <div className="fixed top-0 left-0 w-full z-50">
           <StaggeredMenu
             position="right"
+            colors="#f5f5f5"
             items={menuItems}
             logoUrl={logo}
             socialItems={socialItems}
@@ -61,6 +64,7 @@ function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/gallery" element={<Gallery />} />

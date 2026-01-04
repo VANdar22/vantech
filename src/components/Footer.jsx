@@ -60,17 +60,24 @@ const Footer = () => {
         spinDuration={1.5}
         hideDefaultCursor={false}
         parallaxOn={true}
-        color="#EA1821"
+        color="#e53e3e"
         containerRef={footerRef}
       />
       <div className="w-full max-w-4xl mx-auto text-center px-4 sm:px-6">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#1B1D1C] mb-6 sm:mb-8 font-['Clash_Display'] uppercase">
+        <h2 className="font-bold text-[#1B1D1C] mb-6 sm:mb-8 font-climate-crisis uppercase" style={{
+          letterSpacing: '0.02em',
+          fontSize: 'clamp(1.5rem, 5vw, 3rem)',
+          lineHeight: 1,
+          textTransform: 'uppercase',
+          fontFamily: '"Climate Crisis", sans-serif',
+          fontWeight: 400
+        }}>
           <div className="flex flex-col space-y-2 sm:space-y-4">
-              <span className="block text-[#ea1821]">
+              <span className="block text-[#e53e3e]">
                 <span ref={crazyRef} className="cursor-target">Crazy</span> <span ref={ideasRef} className="cursor-target">Ideas</span> <span ref={existRef} className="cursor-target">exist</span>
               </span>
-              <span className="text-[#ea1821] block">therefore</span>
-              <span className="block text-[#ea1821]">
+              <span className="text-[#e53e3e] block">therefore</span>
+              <span className="block text-[#e53e3e]">
                 We <span ref={makeRef} className="cursor-target">make</span> them <span ref={realRef} className="cursor-target">real</span>
               </span>
           </div>
@@ -83,7 +90,7 @@ const Footer = () => {
                 <a 
                   ref={el => navLinkRefs.current[index] = el}
                   href={link.url} 
-                  className="text-2xl text-gray-600 hover:text-[#EA1821] transition-colors font-['Montserrat'] cursor-target"
+                  className="text-xl text-gray-600 hover:text-[#e53e3e] transition-colors font-['Montserrat'] cursor-target"
                 >
                   {link.label}
                 </a>

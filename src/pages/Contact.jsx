@@ -73,20 +73,16 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20 px-4 bg-white">
+    <div className="min-h-screen pt-20 px-4 bg-[#f5f5f5]">
       <div className="max-w-6xl mx-auto py-12 px-4">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="space-y-8">
             <motion.div 
               ref={headingRef}
-              className="font-bold leading-none text-gray-900"
+              className="font-['Climate_Crisis'] text-gray-900 text-4xl md:text-5xl lg:text-6xl leading-none tracking-tight"
               style={{
-                fontFamily: 'Clash Display',
-                fontSize: 'clamp(2.5rem, 7vw, 5rem)',
-                fontWeight: 800,
-                lineHeight: 0.9,
-                letterSpacing: '0.02em',
-                textTransform: 'uppercase'
+                textTransform: 'uppercase',
+                fontWeight: 400
               }}
             >
               <motion.div 
@@ -108,14 +104,13 @@ const Contact = () => {
               </motion.div>
             </motion.div>
             <motion.p 
-              className="text-lg text-gray-800 max-w-lg" 
-              style={{ fontFamily: 'Clash Display' }}
+              className="text-lg text-gray-800 max-w-lg font-['Montserrat'] font-normal leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { 
                 opacity: 1, 
                 y: 0,
                 transition: {
-                  delay: 0.6, // Slight delay after the heading animation
+                  delay: 0.6,
                   duration: 0.8,
                   ease: [0.22, 1, 0.36, 1]
                 }
@@ -185,65 +180,64 @@ const Contact = () => {
             </motion.div>
           </div>
           
-          <div className="bg-white p-8 rounded-lg" style={{ fontFamily: 'Clash Display' }}>
+          <div className="bg-[#f5f5f5] p-8 rounded-lg font-['Montserrat']">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label htmlFor="name" className="block text-sm text-gray-700 mb-1">Name</label>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">Name</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:border-[#0E38B1]"
+                  className="w-full px-3 py-2 border border-[#C41220] focus:outline-none focus:ring-1 focus:ring-[#C41220] font-['Montserrat'] text-gray-800"
                   required
                 />
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="email" className="block text-sm text-gray-700 mb-1">Email</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">Email</label>
                   <input
                     type="email"
                     id="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:border-[#0E38B1]"
+                    className="w-full px-3 py-2 border border-[#C41220] focus:outline-none focus:ring-1 focus:ring-[#C41220] font-['Montserrat'] text-gray-800"
                     required
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="phone" className="block text-sm text-gray-700 mb-1">Phone (optional)</label>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">Phone (optional)</label>
                   <input
                     type="tel"
                     id="phone"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:border-[#0E38B1]"
+                    className="w-full px-3 py-2 border border-[#C41220] focus:outline-none focus:ring-1 focus:ring-[#C41220] font-['Montserrat'] text-gray-800"
                   />
                 </div>
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm text-gray-700 mb-1">Message</label>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1.5">Message</label>
                 <textarea
                   id="message"
                   name="message"
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:border-[#0E38B1]"
+                  className="w-full px-3 py-2 border border-[#C41220] focus:outline-none focus:ring-1 focus:ring-[#C41220] font-['Montserrat'] text-gray-800"
                   required
                 />
               </div>
               
               <button
                 type="submit"
-                className="w-full bg-[#C41220] text-white py-3 px-4 font-medium hover:bg-[#9e0e19] transition-colors"
-                style={{ fontFamily: 'Clash Display' }}
+                className="w-full bg-[#C41220] text-white py-3 px-4 font-semibold hover:bg-[#9e0e19] transition-colors font-['Montserrat']"
               >
                 Send Message
               </button>

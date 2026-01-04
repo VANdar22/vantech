@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+.servicesContainer {
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+}
+
+.servicesContainer h1,
+.servicesContainer h2,
+.servicesContainer h3,
+.servicesContainer h4,
+.servicesContainer h5,
+.servicesContainer h6 {
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+}

@@ -20,6 +20,8 @@ module.exports = {
         sans: ['Clash Display Variable', 'sans-serif'],
         'clash-display': ['Clash Display Variable', 'sans-serif'],
         'montserrat-alt': ['Montserrat Alternates', 'sans-serif'],
+        'erica-one': ['"Erica One"', 'cursive'],
+        'climate-crisis': ['"Climate Crisis"', 'sans-serif'],
         sekuya: ['Sekuya', 'sans-serif'],
       },
       colors: {

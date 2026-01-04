@@ -55,7 +55,7 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="relative flex items-center justify-center min-h-screen bg-white"
+      className="relative flex items-center justify-center min-h-screen bg-[#f5f5f5]"
       style={{
         padding: '60px 24px',
         minHeight: '100vh',
@@ -88,18 +88,20 @@ const HeroSection = () => {
           <div className="relative">
             <motion.div 
               ref={ref}
-              className="mx-auto font-bold leading-tight text-gray-900"
+              className="mx-auto font-bold leading-tight text-black-800"
               style={{
                 textTransform: 'uppercase',
-                fontFamily: 'clash display',
-                fontSize: 'clamp(2.5rem, 10vw, 6rem)',
-                fontWeight: 800,
+                fontFamily: '"Climate Crisis", sans-serif',
+                fontSize: 'clamp(2.25rem, 8vw, 5rem)',
+                fontWeight: 400,
                 lineHeight: 1,
                 letterSpacing: '0.02em',
-                color: '#1B1D1C',
+
                 maxWidth: '100%',
                 margin: '0 auto',
-                padding: '0 8px'
+                padding: '0 8px',
+                fontVariationSettings: '"wght" 400',
+                fontFeatureSettings: '"tnum" 1, "ss01" 1, "ss02" 1'
               }}
             >
               <div className="flex flex-col space-y-1 sm:space-y-2 md:space-y-3">

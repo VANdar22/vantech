@@ -1,100 +1,94 @@
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const SplashScreen = ({ onComplete }) => {
+  const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const text = 'VAN';
-  const subText = 'tech';
+  const animationRef = useRef(null);
 
   useEffect(() => {
-    // Start exit animation after 2 seconds
-    const timer = setTimeout(() => {
-      setIsAnimating(true);
+    let start = null;
+    const duration = 5000; // Increased from 3000ms to 5000ms (5 seconds total)
+    
+    const animate = (timestamp) => {
+      if (!start) start = timestamp;
+      const elapsed = timestamp - start;
+      const progress = Math.min(elapsed / duration, 1);
       
-      // Remove from DOM after animation completes
-      setTimeout(() => {
-        setIsVisible(false);
-        onComplete?.();
-      }, 900); // Smooth exit duration
-    }, 2000); // Total splash time ~2.9s
-
-    return () => clearTimeout(timer);
+      // Update progress (0-100%)
+      setProgress(Math.floor(progress * 100));
+      
+      if (progress < 1) {
+        animationRef.current = requestAnimationFrame(animate);
+      } else {
+        // Start exit animation when loading is complete
+        setTimeout(() => {
+          setIsVisible(false);
+          onComplete?.();
+        }, 500); // Short delay before hiding
+      }
+    };
+    
+    // Start the animation
+    animationRef.current = requestAnimationFrame(animate);
+    
+    // Cleanup function
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
   }, [onComplete]);
 
   if (!isVisible) return null;
 
   return (
     <AnimatePresence>
-      {isVisible && (
-        <div className="fixed inset-0 z-50 overflow-hidden">
-          <motion.div
-            className="fixed inset-0 bg-[#EA1821]/100 z-10"
-            initial={{ y: 0, opacity: 1 }}
-            animate={isAnimating ? { y: '-100%', opacity: 0.92 } : { y: 0, opacity: 1 }}
-            transition={{ 
-              duration: 0.9,
-              ease: [0.4, 0, 0.2, 1] // Material-like natural ease
+      <motion.div
+        className="fixed inset-0 bg-[#EA1821] z-50 flex items-center justify-center"
+        initial={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        {/* Main Content - Centered */}
+        <div className="text-center">
+          <h1 
+            className="text-6xl md:text-8xl font-bold text-gray-200"
+            style={{
+              fontFamily: '"Flexing", sans-serif',
+              fontWeight: 800,
+              letterSpacing: '0.05em',
+              textTransform: 'uppercase'
             }}
           >
-            <div className="h-full flex items-center justify-center">
-              <div className="text-center">
-                <div className="flex items-baseline justify-center">
-                  <h1 
-                    className="text-7xl md:text-9xl font-bold text-gray-200"
-                    style={{
-                      fontFamily: '"Flexing", sans-serif',
-                      fontWeight: 800,
-                      letterSpacing: '0.05em',
-                      textTransform: 'uppercase'
-                    }}
-                  >
-                    {text.split('').map((char, index) => (
-                      <motion.span
-                        key={index}
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{
-                          opacity: 1,
-                          y: 0,
-                          transition: {
-                            delay: index * 0.04,
-                            duration: 0.45,
-                            ease: [0.22, 1, 0.36, 1]
-                          }
-                        }}
-                        style={{ display: 'inline-block' }}
-                      >
-                        {char === ' ' ? '\u00A0' : char}
-                      </motion.span>
-                    ))}
-                  </h1>
-                  <motion.span 
-                    className="text-7xl md:text-9xl font-bold text-gray-200 ml-1"
-                    style={{
-                      fontFamily: '"Flexing", sans-serif',
-                      fontWeight: 800,
-                      letterSpacing: '0.05em',
-                      textTransform: 'lowercase'
-                    }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{
-                      opacity: 1,
-                      y: 0,
-                      transition: {
-                        delay: text.length * 0.05,
-                        duration: 0.3,
-                        ease: 'easeOut'
-                      }
-                    }}
-                  >
-                    {subText}
-                  </motion.span>
-                </div>
-              </div>
-            </div>
+            VAN<span style={{ fontWeight: 600, textTransform: 'lowercase' }}>tech</span>
+          </h1>
+        </div>
+
+        {/* Loading Percentage - Bottom on mobile, bottom-right on larger screens */}
+        <div className="fixed bottom-6 right-6 sm:right-8 sm:bottom-8">
+          <motion.div 
+            className="text-3xl sm:text-4xl font-bold text-gray-200 opacity-90"
+            style={{
+              fontFamily: '"Flexing", sans-serif',
+              fontWeight: 600,
+              letterSpacing: '0.05em'
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ 
+              opacity: 1, 
+              y: 0,
+              transition: {
+                delay: 0.3,
+                duration: 0.5,
+                ease: 'easeOut'
+              }
+            }}
+          >
+            {progress}%
           </motion.div>
         </div>
-      )}
+      </motion.div>
     </AnimatePresence>
   );
 };

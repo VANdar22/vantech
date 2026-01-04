@@ -333,12 +333,12 @@ const ProjectCaseStudy = ({ project }) => {
                 className="w-full block no-underline hover:opacity-90 transition-opacity"
                 variants={fadeInUp}
                 style={{
-                  fontFamily: 'Clash Display',
-                  fontWeight: 800,
+                  fontFamily: '"Climate Crisis", sans-serif',
+                  fontWeight: 600,
                   textTransform: 'uppercase',
-                  letterSpacing: '0.02em',
-                  color: project.theme.textColor || '#1B1D1C',
-                  fontSize: 'clamp(1.75rem, 6vw, 3.5rem)',
+                  letterSpacing: '0.03em',
+                  color: project.theme.accentColor || '#EA1821',
+                  fontSize: 'clamp(1.25rem, 4.5vw, 2.75rem)',
                   lineHeight: 1,
                   cursor: 'pointer'
                 }}
@@ -369,7 +369,7 @@ const ProjectCaseStudy = ({ project }) => {
                   variants={fadeInUp}
                   style={{
                     color: project.theme.accentColor || '#EA1821',
-                    fontFamily: 'Clash Display',
+                    fontFamily: '"Climate Crisis", sans-serif',
                     fontWeight: 300,
                     textTransform: 'uppercase',
                     letterSpacing: '0.05em'
