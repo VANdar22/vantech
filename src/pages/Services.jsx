@@ -16,6 +16,12 @@ import Footer from '../components/Footer';
 import { accentColors } from '../constants/colors';
 import styles from './Services.module.css';
 
+// Import images
+import strategyImg from '../assets/strategy.png';
+import productImg from '../assets/product.png';
+import softwareImg from '../assets/software.png';
+import launchImg from '../assets/launch.png';
+
 const fadeInUp = {
   hidden: { 
     opacity: 0, 
@@ -143,7 +149,7 @@ const capabilities = [
       label: 'Strategy & Discovery',
       title: 'Clarity before code.',
       body: 'We help you define the right problem before anything is built. This phase aligns stakeholders, reduces risk, and sets a clear direction for product success.',
-      image: '/src/assets/strategy.png',
+      image: strategyImg,
       bullets: [
         'Product vision and roadmap definition',
         'User research and stakeholder interviews',
@@ -155,7 +161,7 @@ const capabilities = [
       label: 'Product Design',
       title: 'Design that feels effortless.',
       body: 'We design intuitive, accessible digital experiences that align user needs with business goals.',
-      image: '/src/assets/product.png',
+      image: productImg,
       bullets: [
         'UX research and user journey mapping',
         'UI design systems and visual identity',
@@ -167,7 +173,7 @@ const capabilities = [
       label: 'Software Development',
       title: 'Built to scale and last.',
       body: 'We engineer reliable, maintainable software systems using modern technologies and best practices.',
-      image: '/src/assets/software.png',
+      image: softwareImg,
       bullets: [
         'Web and mobile application development',
         'Backend systems and APIs',
@@ -179,7 +185,7 @@ const capabilities = [
       label: 'Launch & Enablement',
       title: 'Support beyond delivery.',
       body: 'We help teams launch confidently and operate independently long after handover.',
-      image: '/src/assets/launch.png',
+      image: launchImg,
       bullets: [
         'Deployment and release management',
         'Documentation and team onboarding',
