@@ -1,4 +1,5 @@
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ACCENT, PRIMARY, GRAY_800 } from '../constants/colors';
 
@@ -40,6 +41,7 @@ export const StaggeredMenu = ({
   const textInnerRef = useRef(null);
   const textWrapRef = useRef(null);
   const [textLines, setTextLines] = useState(['Menu', 'Close']);
+  const navigate = useNavigate();
 
   const openTlRef = useRef(null);
   const closeTweenRef = useRef(null);
@@ -339,6 +341,11 @@ export const StaggeredMenu = ({
     }
   }, [playClose, animateIcon, animateColor, animateText, onMenuClose]);
 
+  const handleLogoClick = useCallback((e) => {
+    e.preventDefault();
+    navigate('/');
+  }, [navigate]);
+
   React.useEffect(() => {
     if (!closeOnClickAway || !open) return;
 
@@ -389,10 +396,8 @@ export const StaggeredMenu = ({
         <header
           className="staggered-menu-header absolute top-0 left-0 w-full flex items-center justify-between p-[2em] bg-transparent pointer-events-none z-20"
           aria-label="Main navigation header">
-          <div
-            className="sm-logo flex items-center select-none pointer-events-auto"
-            aria-label="Logo">
-            <div className="sm-logo-img-wrapper" style={{ height: '60px', display: 'flex', alignItems: 'center' }}>
+          <div className="sm-logo flex items-center select-none pointer-events-auto" aria-label="Logo">
+            <div className="sm-logo-img-wrapper" style={{ height: '60px', display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={handleLogoClick}>
               <img
                 src={logoUrl || '/src/assets/logos/reactbits-gh-white.svg'}
                 alt="Logo"
