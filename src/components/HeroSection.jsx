@@ -124,7 +124,7 @@ const HeroSection = () => {
                     }
                   } : {}}
                 >
-                  designed in accra
+                  designed _in_ accra
                 </motion.div>
                 <motion.div 
                   className="text-xs sm:text-sm md:text-base lg:text-lg text-[#1B1D1C]"
@@ -139,7 +139,7 @@ const HeroSection = () => {
                     }
                   } : {}}
                 >
-                  est 2022
+                  est - 2022
                 </motion.div>
               </div>
             </motion.div>
