@@ -1,16 +1,82 @@
-# React + Vite
+# VANtech - Modern Web Solutions
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![VANtech Logo](/public/favicon-512x512.png)
 
-Currently, two official plugins are available:
+A cutting-edge web application built with React, Vite, and Tailwind CSS, showcasing modern web development practices and responsive design.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- **Modern UI/UX** - Built with Tailwind CSS and Framer Motion for smooth animations
+- **Responsive Design** - Fully responsive layout that works on all devices
+- **Interactive Components** - Featuring interactive elements powered by GSAP and Framer Motion
+- **Form Handling** - Contact forms with validation and submission handling
+- **Modern Routing** - Client-side routing with React Router DOM
+- **Performance Optimized** - Built with Vite for fast development and production builds
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: React 19
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion, GSAP
+- **UI Components**: Headless UI, Radix UI
+- **Form Handling**: React Hook Form
+- **Routing**: React Router DOM
+- **Build Tool**: Vite
+- **Deployment**: Netlify
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or later)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/VANdar22/vantech.git
+   cd vantech
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## 🏗️ Building for Production
+
+```bash
+# Build for production
+npm run build
+
+# Preview the production build
+npm run preview
+```
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📧 Contact
+
+For any inquiries, please reach out to us at [your-email@example.com](mailto:your-email@example.com)
+
+---
+
+Built with ❤️ by VANtech Team
