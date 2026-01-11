@@ -262,26 +262,17 @@ Every engagement blends strategic thinking, thoughtful design, and reliable engi
                 </AnimatedText>
               </div>
               <div className="flex flex-wrap gap-4">
-                <motion.a
-                  href="/contact"
-                  className="inline-flex items-center gap-2 rounded-full border border-black px-6 py-3 text-base font-semibold transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
-                  style={{
-                    backgroundColor: '#EA1821',
-                    color: 'white',
-                    borderColor: '#EA1821',
-                    '--tw-shadow': '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'
-                  }}
-                  whileHover={{
-                    backgroundColor: '#D40000',
-                    color: 'white',
-                    borderColor: '#D40000',
-                    boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)'
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span>Talk to us</span>
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">↗</span>
-                </motion.a>
+                <div className="relative inline-block overflow-hidden rounded-full">
+                  <motion.a
+                    href="/contact"
+                    className="group relative inline-flex items-center overflow-hidden rounded-full border border-[#EA1821] bg-white px-6 py-3 text-base font-semibold text-[#EA1821] shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span className="relative z-10 transition-colors duration-300 group-hover:text-white">Talk to us</span>
+                    <span className="absolute inset-0 -z-0 h-0 w-full rounded-full bg-[#EA1821] transition-all duration-300 group-hover:h-full"></span>
+                  </motion.a>
+                </div>
               </div>
             </div>
           </AnimatedText>
@@ -314,9 +305,9 @@ Every engagement blends strategic thinking, thoughtful design, and reliable engi
             >
               <div className="space-y-6">
                 <div className="space-y-4">
-                  <div className="flex items-center gap-3 text-xs font-medium uppercase tracking-widest">
+                  <div className="flex items-center gap-3 font-medium uppercase tracking-widest">
                     <span className="h-px w-8" style={{ backgroundColor: `${accentColors.main}80` }} />
-                    <span style={{ color: `${accentColors.main}80` }}>{capability.label}</span>
+                    <span className="text-md md:text-md" style={{ color: `${accentColors.main}80` }}>{capability.label}</span>
                   </div>
                   <h3 className="text-3xl font-bold leading-tight tracking-tight text-gray-900 md:text-4xl">{capability.title}</h3>
                 </div>
@@ -329,26 +320,16 @@ Every engagement blends strategic thinking, thoughtful design, and reliable engi
                     </li>
                   ))}
                 </div>
-                <motion.button 
-                  className="group inline-flex items-center gap-2 rounded-full border px-6 py-3 text-base font-semibold transition-all duration-300 ease-in-out hover:shadow-lg"
-                  style={{
-                    backgroundColor: '#EA1821',
-                    color: 'white',
-                    borderColor: '#EA1821',
-                    '--tw-shadow': '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'
-                  }}
-                  whileHover={{
-                    backgroundColor: '#D40000',
-                    color: 'white',
-                    borderColor: '#D40000',
-                    scale: 1.05,
-                    boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)'
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span>{capability.cta}</span>
-                  <span className="transition-transform duration-300 group-hover:translate-x-0.5">↗</span>
-                </motion.button>
+                <div className="relative inline-block overflow-hidden rounded-full">
+                  <motion.button
+                    className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-full border border-[#EA1821] bg-white px-6 py-3 text-base font-semibold text-[#EA1821] shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span className="relative z-10 transition-colors duration-300 group-hover:text-white">{capability.cta}</span>
+                    <span className="absolute inset-0 -z-0 h-0 w-full rounded-full bg-[#EA1821] transition-all duration-300 group-hover:h-full"></span>
+                  </motion.button>
+                </div>
               </div>
               <div className="relative w-full max-w-[500px] h-[300px] mx-auto">
                 <SvgMask 
