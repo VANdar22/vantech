@@ -105,15 +105,30 @@ const StepCard = ({ number, title, description, isActive, onNext, onPrev }) => (
         </div>
       </div>
       <div className="flex flex-col h-full relative z-10">
-        <div className="text-4xl sm:text-3xl! font-bold text-[#ea1841] mb-4 sm:mb-6 font-climate-crisis">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
+          className="text-4xl sm:text-3xl! font-bold text-[#ea1841] mb-4 sm:mb-6 font-climate-crisis"
+        >
           {number}
-        </div>
-        <h3 className="text-xl sm:text-xl font-bold text-black mb-4 sm:mb-6 font-['Montserrat']">
+        </motion.div>
+        <motion.h3 
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
+          className="text-xl sm:text-xl font-bold text-black mb-4 sm:mb-6 font-['Montserrat']"
+        >
           {title}
-        </h3>
-        <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 font-['Montserrat']">
+        </motion.h3>
+        <motion.p 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
+          className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 font-['Montserrat']"
+        >
           {description}
-        </p>
+        </motion.p>
       </div>
     </motion.div>
 
@@ -167,11 +182,23 @@ const HowWeWork = () => {
   return (
     <section className="py-16 md:py-24 bg-f5f5f5" id="how-we-work">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-3xl font-bold text-[#EA1821] mb-4 font-climate-crisis">
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ 
+            opacity: 1, 
+            y: 0,
+            transition: { 
+              duration: 0.6,
+              ease: [0.16, 1, 0.3, 1]
+            }
+          }}
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#EA1821] mb-4 font-climate-crisis">
             OUR PROCESS
           </h2>
-        </div>
+        </motion.div>
 
         <div className="max-w-5xl mx-auto relative px-4 sm:px-8 lg:px-12">
           <div className="relative w-full">
