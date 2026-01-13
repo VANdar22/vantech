@@ -363,7 +363,7 @@ const About = () => {
                 </motion.div>
               ))}
             </div>
-            <div className="py-12 md:py-16">
+            <div className="hidden md:block py-12 md:py-16">
               <HowWeWork/>
             </div>
 
