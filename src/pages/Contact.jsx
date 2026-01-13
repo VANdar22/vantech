@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { motion, useInView } from 'framer-motion';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,8 @@ const Contact = () => {
     phone: '',
     message: ''
   });
+  const [recaptchaValue, setRecaptchaValue] = useState(null);
+  const recaptchaRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,8 +23,45 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    if (!recaptchaValue) {
+      alert('Please complete the reCAPTCHA verification');
+      return;
+    }
+    
+    // Add reCAPTCHA token to form data
+    const formDataWithCaptcha = {
+      ...formData,
+      'g-recaptcha-response': recaptchaValue
+    };
+    
     // Handle form submission
-    console.log('Form submitted:', formData);
+    console.log('Form submitted:', formDataWithCaptcha);
+    
+    // Here you would typically send the data to your backend
+    // Example:
+    // fetch('/api/contact', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(formDataWithCaptcha),
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //   console.log('Success:', data);
+    //   // Reset form
+    //   setFormData({ name: '', email: '', phone: '', message: '' });
+    //   recaptchaRef.current.reset();
+    //   setRecaptchaValue(null);
+    // })
+    // .catch((error) => {
+    //   console.error('Error:', error);
+    // });
+  };
+  
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value);
   };
 
   const headingRef = useRef(null);
@@ -234,9 +274,19 @@ const Contact = () => {
                 />
               </div>
               
+              <div className="my-4">
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey="6Lewf0ksAAAAAHqVzrZFixUBHzZEWF1FLTyPCLLy"
+                  onChange={handleRecaptchaChange}
+                />
+              </div>
               <button
                 type="submit"
-                className="w-full bg-[#C41220] text-white py-3 px-4 font-semibold hover:bg-[#9e0e19] transition-colors font-['Montserrat']"
+                disabled={!recaptchaValue}
+                className={`w-full bg-[#C41220] text-white py-3 px-4 font-semibold transition-colors font-['Montserrat'] ${
+                  recaptchaValue ? 'hover:bg-[#9e0e19]' : 'opacity-50 cursor-not-allowed'
+                }`}
               >
                 Send Message
               </button>
