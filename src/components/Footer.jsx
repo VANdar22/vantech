@@ -12,9 +12,9 @@ const Footer = () => {
       { label: "Contact", url: "/contact" },
     ],
     socials: [
-      { platform: "instagram", url: "https://instagram.com" },
+      { platform: "instagram", url: "https://www.instagram.com/vantech_studio?igsh=cm5naTQ2N3FhNGlt&utm_source=qr" },
       { platform: "linkedin", url: "https://linkedin.com" },
-      { platform: "github", url: "https://github.com" }
+      { platform: "github", url: "https://github.com/VANdar22" }
     ]
   };
 

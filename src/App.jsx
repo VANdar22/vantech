@@ -19,8 +19,8 @@ const menuItems = [
 
 const socialItems = [
   { label: 'Linkedin', link: 'https://linkedin.com' },
-  { label: 'Instagram', link: 'https://instagram.com' },
-  { label: 'Github', link: 'https://github.com' }
+  { label: 'Instagram', link: 'https://www.instagram.com/vantech_studio?igsh=cm5naTQ2N3FhNGlt&utm_source=qr' },
+  { label: 'Github', link: 'https://github.com/VANdar22' }
 ];
 
 function App() {
