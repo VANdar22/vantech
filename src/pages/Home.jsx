@@ -1,6 +1,7 @@
 import React from 'react';
 import HeroSection from '../components/HeroSection';
 import About from '../pages/About';
+import HowWeWork from '../components/HowWeWork';
 import Footer from '../components/Footer';
 
 const Home = () => {

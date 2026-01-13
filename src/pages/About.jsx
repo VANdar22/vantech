@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import aboutImage from "../assets/a3.png";
+import HowWeWork from "../components/HowWeWork";
 import { BACKGROUND_LIGHT } from "../constants/colors";
 import Footer from "../components/Footer";
 
@@ -52,8 +53,8 @@ const aboutData = {
   container: {
     maxWidth: "1100px",
     paddingX: "1rem",
-    paddingTop: "2rem",
-    paddingBottom: "2rem",
+    paddingTop: "1rem",
+    paddingBottom: "1rem",
     align: "center",
   },
   header: {
@@ -73,7 +74,7 @@ const aboutData = {
       paragraphs: [
         {
           text: [
-            <span key="design-philosophy" className="block mb-6">
+            <span key="design-philosophy" className="block mb-4">
               We're a studio that designs and builds digital products with care.
               Sometimes they're our own ideas, sometimes they start as yours and
               every time we treat them like they matter.
@@ -84,7 +85,7 @@ const aboutData = {
         },
         {
           text: [
-            <span key="products-text" className="block mb-6">
+            <span key="products-text" className="block mb-4">
               From{" "}
               <span
                 className="font-['Montserrat'] font-bold text-lg sm:text-2xl"
@@ -112,7 +113,7 @@ const aboutData = {
         },
         {
           type: "div",
-          className: "flex justify-center my-12",
+          className: "flex justify-center my-8",
           content: (
             <img
               src={aboutImage}
@@ -361,6 +362,9 @@ const About = () => {
                   })}
                 </motion.div>
               ))}
+            </div>
+            <div className="py-12 md:py-16">
+              <HowWeWork/>
             </div>
 
             <motion.div
