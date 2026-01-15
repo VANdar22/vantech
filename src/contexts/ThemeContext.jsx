@@ -23,7 +23,7 @@ export const ThemeProvider = ({ children }) => {
     setIsMounted(true);
     const savedTheme = localStorage.getItem('theme');
     // Default to light theme regardless of system preference
-    setTheme('light');
+    setTheme('dark');
     
     // Only use saved theme if it exists and is valid
     if (savedTheme === 'light' || savedTheme === 'dark') {

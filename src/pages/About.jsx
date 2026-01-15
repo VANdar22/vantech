@@ -367,17 +367,19 @@ const About = () => {
             </div>
 
             <motion.div
-              className="flex justify-center my-12"
+              className="flex justify-center my-12 w-full"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <img
-                src={theme === 'dark' ? aboutImageDark : aboutImageLight}
-                alt="About VANtech"
-                className="w-[28rem] h-[28rem] object-cover"
-              />
+              <div className="relative w-full max-w-[16rem] h-[16rem] md:max-w-[24rem] md:h-[24rem] lg:max-w-[28rem] lg:h-[28rem]">
+                <img
+                  src={theme === 'dark' ? aboutImageDark : aboutImageLight}
+                  alt="About VANtech"
+                  className={`w-full h-full object-${theme === 'dark' ? 'contain' : 'cover'} p-4`}
+                />
+              </div>
             </motion.div>
           </motion.div>
         </div>
