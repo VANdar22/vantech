@@ -1,7 +1,9 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import aboutImage from "../assets/a3.png";
+import aboutImageLight from "../assets/about.png";
+import aboutImageDark from "../assets/dark.png";
 import HowWeWork from "../components/HowWeWork";
+import { useTheme } from "../contexts/ThemeContext";
 import { BACKGROUND_LIGHT } from "../constants/colors";
 import Footer from "../components/Footer";
 
@@ -49,7 +51,7 @@ const childVariants = {
   },
 };
 
-const aboutData = {
+const getAboutData = (isDark) => ({
   container: {
     maxWidth: "1100px",
     paddingX: "1rem",
@@ -66,7 +68,6 @@ const aboutData = {
     color: "#EA1821",
     marginBottom: "1rem",
   },
-
   sections: [
     {
       id: 1,
@@ -80,8 +81,7 @@ const aboutData = {
               every time we treat them like they matter.
             </span>,
           ],
-          className:
-            "text-lg sm:text-2xl text-[#1B1D1C] leading-relaxed font-['Montserrat'] font-normal",
+          className: `text-lg sm:text-2xl leading-relaxed font-["Montserrat"] font-normal ${isDark ? 'text-white' : 'text-[#1B1D1C]'}`,
         },
         {
           text: [
@@ -108,15 +108,14 @@ const aboutData = {
               creating digital products that people actually use.
             </span>,
           ],
-          className:
-            "text-lg sm:text-2xl text-[#1B1D1C] leading-relaxed font-['Montserrat'] font-normal",
+          className: `text-lg sm:text-2xl leading-relaxed font-["Montserrat"] font-normal ${isDark ? 'text-white' : 'text-[#1B1D1C]'}`,
         },
         {
           type: "div",
           className: "flex justify-center my-8",
           content: (
             <img
-              src={aboutImage}
+              src={isDark ? aboutImageDark : aboutImageLight}
               alt="About VANtech"
               className="w-[28rem] h-[28rem] object-cover"
             />
@@ -125,11 +124,12 @@ const aboutData = {
       ],
     },
   ],
-};
+});
 
 const About = () => {
+  const { theme } = useTheme();
+  const aboutData = getAboutData(theme === 'dark');
   const { container, header, headerUnderline, sections } = aboutData;
-
   const containerRef = useRef(null);
   const topSvgRef = useRef(null);
   const bottomSvgRef = useRef(null);
@@ -138,7 +138,7 @@ const About = () => {
   const isBottomSvgInView = useInView(bottomSvgRef, { once: true });
 
   return (
-    <div className="relative min-h-screen flex flex-col overflow-x-hidden bg-gradient-to-b from-[#f5f5f5] to-[#EA1821]/20">
+    <div className={`relative min-h-screen flex flex-col overflow-x-hidden transition-colors duration-300 ${theme === 'dark' ? 'bg-gradient-to-b from-gray-900 to-[#EA1821]/20' : 'bg-gradient-to-b from-[#f5f5f5] to-[#EA1821]/20'}`}>
       {/* Top Left SVG */}
       <motion.div
         ref={topSvgRef}
@@ -324,7 +324,6 @@ const About = () => {
                     }
 
                     // Handle regular text paragraphs
-                    // Handle regular text paragraphs
                     if (paragraph.text) {
                       return (
                         <motion.div
@@ -375,7 +374,7 @@ const About = () => {
               transition={{ duration: 0.6 }}
             >
               <img
-                src={aboutImage}
+                src={theme === 'dark' ? aboutImageDark : aboutImageLight}
                 alt="About VANtech"
                 className="w-[28rem] h-[28rem] object-cover"
               />

@@ -19,7 +19,7 @@ const Footer = () => {
   };
 
   const SocialLink = ({ platform, url }) => {
-    const iconProps = { className: "w-10 h-10 text-gray-700 hover:text-[#EA1821] transition-colors" };
+    const iconProps = { className: "w-10 h-10 text-gray-700 dark:text-white hover:text-[#EA1821] dark:hover:text-[#EA1821] transition-colors" };
     
     const getIcon = () => {
       switch (platform.toLowerCase()) {
@@ -39,7 +39,7 @@ const Footer = () => {
         href={url} 
         target="_blank" 
         rel="noopener noreferrer"
-        className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+        className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
         aria-label={platform}
       >
         {getIcon()}
@@ -65,7 +65,7 @@ const Footer = () => {
         containerRef={footerRef}
       />
       <div className="w-full max-w-4xl mx-auto text-center px-4 sm:px-6">
-        <h2 className="font-bold text-[#1B1D1C] mb-6 sm:mb-8 font-climate-crisis uppercase" style={{
+        <h2 className="font-bold text-[#1B1D1C] mb-6 sm:mb-8 font-['Climate_Crisis'] uppercase" style={{
           letterSpacing: '0.02em',
           fontSize: 'clamp(1.5rem, 5vw, 3rem)',
           lineHeight: 1,
@@ -85,13 +85,13 @@ const Footer = () => {
         </h2>
         
         <nav className="mb-12">
-          <ul className="flex flex-wrap justify-center gap-6 md:gap-10">
+          <ul className="flex flex-wrap justify-center gap-6 md:gap-10 dark:text-white font-['Montserrat']">
             {footerData.links.map((link, index) => (
               <li key={link.label}>
                 <a 
+                  href={link.url}
+                  className="text-lg font-medium text-gray-700 dark:text-white hover:text-[#EA1821] dark:hover:text-[#EA1821] transition-colors font-['Montserrat']"
                   ref={el => navLinkRefs.current[index] = el}
-                  href={link.url} 
-                  className="text-xl text-gray-600 hover:text-[#e53e3e] transition-colors font-['Montserrat'] cursor-target"
                 >
                   {link.label}
                 </a>
@@ -113,9 +113,8 @@ const Footer = () => {
               href="https://2v2studios.com" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-[#ea1821] hover:underline"
+              className="text-[#ea1821] hover:underline font-['Montserrat']"
               style={{ 
-                fontFamily: '"Flexing", sans-serif',
                 fontWeight: 600,
                 fontSize: '1.2rem',
                 letterSpacing: '0.5px'

@@ -113,10 +113,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20 px-4 bg-[#f5f5f5]">
-      <div className="max-w-6xl mx-auto py-12 px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div className="space-y-8">
+    <div className="min-h-screen pt-16 md:pt-20 px-4 md:px-6 bg-[#f5f5f5] dark:bg-gray-900 transition-colors duration-200">
+      <div className="max-w-6xl mx-auto py-8 md:py-12 px-2 sm:px-4">
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+          <div className="w-full space-y-6 md:space-y-8">
             <motion.div 
               ref={headingRef}
               className="w-full"
@@ -124,7 +124,7 @@ const Contact = () => {
               animate={isInView ? "visible" : "hidden"}
             >
               <motion.div 
-                className="font-['Climate_Crisis'] text-gray-900 text-4xl md:text-5xl lg:text-6xl leading-none tracking-tight"
+                className="font-['Climate_Crisis'] text-gray-900 dark:text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight sm:leading-none tracking-tight"
                 style={{
                   textTransform: 'uppercase',
                   fontWeight: 400
@@ -144,7 +144,7 @@ const Contact = () => {
               </motion.div>
             </motion.div>
             <motion.p 
-              className="text-justify text-lg text-gray-800 max-w-lg font-['Montserrat'] font-normal leading-relaxed"
+              className="text-justify text-base sm:text-lg text-gray-800 dark:text-gray-300 max-w-lg font-['Montserrat'] font-normal leading-relaxed px-2 sm:px-0"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { 
                 opacity: 1, 
@@ -173,7 +173,7 @@ const Contact = () => {
                 }
               } : {}}
             >
-              <motion.div className="flex justify-center md:justify-start space-x-6">
+              <motion.div className="flex justify-center md:justify-start space-x-4 sm:space-x-6 px-2 sm:px-0">
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
@@ -182,10 +182,10 @@ const Contact = () => {
                     href="https://instagram.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="p-4 hover:bg-gray-100/50 rounded-full transition-colors block"
+                    className="p-4 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-full transition-colors block"
                     aria-label="Instagram"
                   >
-                    <FaInstagram className="w-10 h-10 text-black hover:text-[#C41220] transition-colors" />
+                    <FaInstagram className="w-10 h-10 text-black dark:text-white hover:text-[#C41220] dark:hover:text-[#C41220] transition-colors" />
                   </a>
                 </motion.div>
                 <motion.div
@@ -196,10 +196,10 @@ const Contact = () => {
                     href="https://linkedin.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="p-4 hover:bg-gray-100/50 rounded-full transition-colors block"
+                    className="p-4 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-full transition-colors block"
                     aria-label="LinkedIn"
                   >
-                    <FaLinkedin className="w-10 h-10 text-black hover:text-[#C41220] transition-colors" />
+                    <FaLinkedin className="w-10 h-10 text-black dark:text-white hover:text-[#C41220] dark:hover:text-[#C41220] transition-colors" />
                   </a>
                 </motion.div>
                 <motion.div
@@ -210,76 +210,79 @@ const Contact = () => {
                     href="https://github.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="p-4 hover:bg-gray-100/50 rounded-full transition-colors block"
+                    className="p-4 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-full transition-colors block"
                     aria-label="GitHub"
                   >
-                    <FaGithub className="w-10 h-10 text-black hover:text-[#C41220] transition-colors" />
+                    <FaGithub className="w-10 h-10 text-black dark:text-white hover:text-[#C41220] dark:hover:text-[#C41220] transition-colors" />
                   </a>
                 </motion.div>
               </motion.div>
             </motion.div>
           </div>
-          <div className="bg-[#f5f5f5] p-8 rounded-lg font-['Montserrat']">
+          <div className="w-full bg-white dark:bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg font-['Montserrat'] shadow-md dark:shadow-gray-900/20">
             <form onSubmit={handleSubmit} className="space-y-5 ">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">Name</label>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Name</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-[#C41220] focus:outline-none focus:ring-1 focus:ring-[#C41220] font-['Montserrat'] text-gray-800"
+                  className="w-full px-3 py-2 border border-[#C41220] focus:outline-none focus:ring-1 focus:ring-[#C41220] font-['Montserrat'] text-gray-800 dark:text-white dark:bg-gray-700 dark:border-gray-600"
                   required
                 />
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">Email</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Email</label>
                   <input
                     type="email"
                     id="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-[#C41220] focus:outline-none focus:ring-1 focus:ring-[#C41220] font-['Montserrat'] text-gray-800"
+                    className="w-full px-3 py-2 border border-[#C41220] focus:outline-none focus:ring-1 focus:ring-[#C41220] font-['Montserrat'] text-gray-800 dark:text-white dark:bg-gray-700 dark:border-gray-600"
                     required
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">Phone (optional)</label>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Phone (optional)</label>
                   <input
                     type="tel"
                     id="phone"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-[#C41220] focus:outline-none focus:ring-1 focus:ring-[#C41220] font-['Montserrat'] text-gray-800"
+                    className="w-full px-3 py-2 border border-[#C41220] focus:outline-none focus:ring-1 focus:ring-[#C41220] font-['Montserrat'] text-gray-800 dark:text-white dark:bg-gray-700 dark:border-gray-600"
                   />
                 </div>
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1.5">Message</label>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Message</label>
                 <textarea
                   id="message"
                   name="message"
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-[#C41220] focus:outline-none focus:ring-1 focus:ring-[#C41220] font-['Montserrat'] text-gray-800"
+                  className="w-full px-3 py-2 border border-[#C41220] focus:outline-none focus:ring-1 focus:ring-[#C41220] font-['Montserrat'] text-gray-800 dark:text-white dark:bg-gray-700 dark:border-gray-600"
                   required
                 />
               </div>
               
-              <div className="my-4">
-                <ReCAPTCHA
-                  ref={recaptchaRef}
-                  sitekey="6Lewf0ksAAAAAHqVzrZFixUBHzZEWF1FLTyPCLLy"
-                  onChange={handleRecaptchaChange}
-                />
+              <div className="my-4 scale-90 sm:scale-100 origin-left">
+                <div className="dark:invert">
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey="6Lewf0ksAAAAAHqVzrZFixUBHzZEWF1FLTyPCLLy"
+                    onChange={handleRecaptchaChange}
+                    theme="light"
+                  />
+                </div>
               </div>
               <button
                 type="submit"

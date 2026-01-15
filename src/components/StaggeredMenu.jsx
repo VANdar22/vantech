@@ -26,9 +26,14 @@ export const StaggeredMenu = ({
 
   const panelRef = useRef(null);
   const panelStyle = { 
-    background: 'linear-gradient(135deg, #0E38B1 0%, #3A6BC8 50%, #5E8BFF 100%) !important',
-    backgroundSize: '200% 200%',
-    animation: 'gradientBG 15s ease infinite',
+    background: '#EA1841',
+    color: '#ffffff',
+  };
+  
+  const darkPanelStyle = {
+    background: '#1a1a1a',
+    border: '1px solid #333',
+    color: '#ffffff',
   };
   const preLayersRef = useRef(null);
   const preLayerElsRef = useRef([]);
@@ -459,8 +464,8 @@ export const StaggeredMenu = ({
         <aside
           id="staggered-menu-panel"
           ref={panelRef}
-          className="staggered-menu-panel fixed inset-y-0 right-0 w-[50%] h-full bg-white flex flex-col p-[1.5em] overflow-y-auto z-10 scrollbar-hide"
-          style={{ backgroundColor: '#0E38B1', border: `2px solid ${GRAY_800}1a` }}
+          className="staggered-menu-panel fixed inset-y-0 right-0 w-[50%] h-full flex flex-col p-[1.5em] overflow-y-auto z-10 scrollbar-hide dark:bg-gray-900"
+          style={open ? (document.documentElement.classList.contains('dark') ? darkPanelStyle : panelStyle) : {}}
           aria-hidden={!open}>
           <div className="sm-panel-inner flex-1 flex flex-col gap-5 max-w-4xl mx-auto w-full px-4 mt-16">
             <ul
@@ -541,7 +546,7 @@ export const StaggeredMenu = ({
 .sm-scope .sm-panel-itemWrap { position: relative; overflow: hidden; line-height: 1; }
 .sm-scope .sm-icon-line { position: absolute; left: 50%; top: 50%; width: 100%; height: 2px; background: currentColor; border-radius: 2px; transform: translate(-50%, -50%); will-change: transform; }
 .sm-scope .sm-line { display: none !important; }
-.sm-scope .staggered-menu-panel { position: fixed; top: 0; right: 0; bottom: 0; width: 30%; background: #fff !important; backdrop-filter: none; -webkit-backdrop-filter: none; display: flex; flex-direction: column; padding: 1.5em; overflow-y: auto; z-index: 10; scrollbar-width: none; -ms-overflow-style: none; }
+.sm-scope .staggered-menu-panel { position: fixed; top: 0; right: 0; bottom: 0; width: 30%; backdrop-filter: none; -webkit-backdrop-filter: none; display: flex; flex-direction: column; padding: 1.5em; overflow-y: auto; z-index: 10; scrollbar-width: none; -ms-overflow-style: none; }
 .sm-scope .staggered-menu-panel::-webkit-scrollbar { display: none; }
 .sm-scope [data-position='left'] .staggered-menu-panel { right: auto; left: 0; }
 .sm-scope .sm-prelayers { position: fixed; top: 0; right: 0; bottom: 0; width: 30%; pointer-events: none; z-index: 5; }
@@ -549,24 +554,39 @@ export const StaggeredMenu = ({
 .sm-scope .sm-prelayer { position: absolute; top: 0; right: 0; height: 100%; width: 100%; transform: translateX(0); }
 .sm-scope .sm-panel-inner { flex: 1; display: flex; flex-direction: column; gap: 1.25rem; }
 .sm-scope .sm-socials { margin-top: auto; padding-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
-.sm-scope .sm-socials-title { margin: 0; font-size: 1rem; font-weight: 500; color: var(--sm-accent, #ff0000); }
+.sm-scope .sm-socials-title { margin: 0; font-size: 1rem; font-weight: 600; color: #fff; text-transform: uppercase; }
 .sm-scope .sm-socials-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: row; align-items: center; gap: 1rem; flex-wrap: wrap; }
-.sm-scope .sm-socials-list .sm-socials-link { opacity: 1; transition: opacity 0.3s ease; }
+.sm-scope .sm-socials-list .sm-socials-link { opacity: 1; transition: opacity 0.3s ease; color: #fff; }
 .sm-scope .sm-socials-list:hover .sm-socials-link:not(:hover) { opacity: 0.35; }
 .sm-scope .sm-socials-list:focus-within .sm-socials-link:not(:focus-visible) { opacity: 0.35; }
 .sm-scope .sm-socials-list .sm-socials-link:hover,
 .sm-scope .sm-socials-list .sm-socials-link:focus-visible { opacity: 1; }
 .sm-scope .sm-socials-link:focus-visible { outline: 2px solid var(--sm-accent, #ff0000); outline-offset: 3px; }
-.sm-scope .sm-socials-link { font-size: 1.2rem; font-weight: 500; color: #111; text-decoration: none; position: relative; padding: 2px 0; display: inline-block; transition: color 0.3s ease, opacity 0.3s ease; }
-.sm-scope .sm-socials-link:hover { color: var(--sm-accent, #ff0000); }
+.sm-scope .sm-socials-link { font-size: 1.2rem; font-weight: 500; color: #fff; text-decoration: none; position: relative; padding: 2px 0; display: inline-block; transition: all 0.3s ease; }
+.sm-scope .sm-socials-link:hover { color: #fff; opacity: 0.8; text-decoration: underline; }
 .sm-scope .sm-panel-title { margin: 0; font-size: 1rem; font-weight: 600; color: #fff; text-transform: uppercase; }
 .sm-scope .sm-panel-list { list-style: none; margin: 0; padding: 0.25rem 0; display: flex; flex-direction: column; gap: 0.5rem; }
-.sm-scope .sm-panel-item { position: relative; color: #000; font-weight: 600; font-size: 2.25rem; cursor: pointer; line-height: 1.1; letter-spacing: -0.5px; text-transform: uppercase; transition: background 0.25s, color 0.25s; display: inline-block; text-decoration: none; padding: 0.15em 1.5em 0.15em 0; }
+.sm-scope .sm-panel-item { position: relative; color: #fff; font-weight: 600; font-size: 2.25rem; cursor: pointer; line-height: 1.1; letter-spacing: -0.5px; text-transform: uppercase; transition: all 0.25s ease; display: inline-block; text-decoration: none; padding: 0.15em 1.5em 0.15em 0; }
+.dark .sm-scope .sm-panel-item { color: #fff; }
 .sm-scope .sm-panel-itemLabel { display: inline-block; will-change: transform; transform-origin: 50% 100%; }
-.sm-scope .sm-panel-item:hover { color: var(--sm-accent, #ff0000); }
+.sm-scope .sm-panel-item:hover { color: #cccccc; text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+.dark .sm-scope .sm-panel-item:hover { color: #ff4d4d; text-shadow: 0 0 10px rgba(255, 77, 77, 0.5); }
 .sm-scope .sm-panel-list[data-numbering] { counter-reset: smItem; }
-.sm-scope .sm-panel-list[data-numbering] .sm-panel-item::after { counter-increment: smItem; content: counter(smItem, decimal-leading-zero); position: absolute; top: 0.3em; right: 1.5em; font-size: 12px; font-weight: 400; color: var(--sm-accent, #ff0000); letter-spacing: 0; pointer-events: none; user-select: none; opacity: var(--sm-num-opacity, 0); }
-@media (max-width: 1024px) { .sm-scope .staggered-menu-panel { width: 100%; left: 0; right: 0; } .sm-scope .staggered-menu-wrapper[data-open] .sm-logo-img { filter: invert(100%); } }
+.sm-scope .sm-panel-list[data-numbering] .sm-panel-item::after { counter-increment: smItem; content: counter(smItem, decimal-leading-zero); position: absolute; top: 0.3em; right: 1.5em; font-size: 12px; font-weight: 400; color: #ffffff; letter-spacing: 0; pointer-events: none; user-select: none; opacity: var(--sm-num-opacity, 0.7); }
+.dark .sm-scope .sm-panel-list[data-numbering] .sm-panel-item::after { color: #ff4d4d; }
+@media (max-width: 1024px) { 
+  .sm-scope .staggered-menu-panel { 
+    width: 100%; 
+    left: 0; 
+    right: 0; 
+  } 
+  .sm-scope .staggered-menu-wrapper[data-open] .sm-logo-img { 
+    filter: invert(100%); 
+  } 
+  .dark .sm-scope .staggered-menu-wrapper[data-open] .sm-logo-img { 
+    filter: invert(0%); 
+  }
+}
 @media (max-width: 640px) { 
   .sm-scope .staggered-menu-panel { 
     width: 100%; 

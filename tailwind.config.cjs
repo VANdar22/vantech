@@ -28,25 +28,43 @@ module.exports = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "#FFFFFF",
-        foreground: "hsl(var(--foreground))",
+        background: {
+          light: "#FFFFFF",
+          dark: "#0F172A",
+          DEFAULT: "#FFFFFF"
+        },
+        foreground: {
+          light: "#1E293B",
+          dark: "#F8FAFC",
+          DEFAULT: "hsl(var(--foreground))"
+        },
         primary: {
+          light: "#0E38B1",
+          dark: "#60A5FA",
           DEFAULT: "#0E38B1",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
+          light: "#F1F5F9",
+          dark: "#1E293B",
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
+          light: "#EF4444",
+          dark: "#F87171",
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
+          light: "#F1F5F9",
+          dark: "#1E293B",
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
+          light: "#F1F5F9",
+          dark: "#1E293B",
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },

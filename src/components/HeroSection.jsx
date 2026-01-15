@@ -51,7 +51,7 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="relative flex items-center justify-center min-h-[90vh] sm:min-h-screen bg-[#f5f5f5]"
+      className="relative flex items-center justify-center min-h-[90vh] sm:min-h-screen bg-gray-100 dark:bg-gray-800/10 transition-colors duration-200"
       style={{
         padding: '40px 16px',
         position: 'relative',
@@ -127,7 +127,7 @@ const HeroSection = () => {
                   designed _in_ accra
                 </motion.div>
                 <motion.div 
-                  className="text-xs sm:text-sm md:text-base lg:text-lg text-[#1B1D1C]"
+                  className="text-xs sm:text-sm md:text-base lg:text-lg text-white dark:text-white"
                   initial={{ opacity: 0, y: 10 }}
                   animate={isInView ? {
                     opacity: 1,

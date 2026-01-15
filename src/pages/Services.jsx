@@ -232,10 +232,10 @@ const capabilities = [
 const Services = () => {
   return (
     <PageTransition>
-      <div className={`min-h-screen w-full ${styles.servicesContainer} bg-[#f5f5f5]`} style={{ color: '#1a1a1a' }}>
+      <div className={`min-h-screen w-full ${styles.servicesContainer} bg-white dark:bg-gray-800`}>
       {/* hero */}
       <motion.section 
-        className="mx-auto max-w-6xl px-6 py-24 overflow-hidden bg-[#f5f5f5]"
+        className="mx-auto max-w-6xl px-6 py-24 overflow-hidden bg-white dark:bg-gray-800"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
@@ -247,13 +247,13 @@ const Services = () => {
               <p className="text-sm uppercase tracking-[0.3em]" style={{ color: `${accentColors.main}80` }}>Services</p>
             </AnimatedText>
             <AnimatedText delay={0.2} split>
-              <h1 className="mt-4 text-3xl font-['Clash_Display'] font-bold leading-tight tracking-tight md:text-4xl lg:text-5xl ">
+              <h1 className="mt-4 text-3xl font-['Clash_Display'] font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-4xl lg:text-5xl">
                 We turn ideas into awesome digital products
               </h1>
             </AnimatedText>
           </div>
           <AnimatedText delay={0.2}>
-            <div className="flex-1 max-w-xl space-y-6 text-base md:text-lg text-gray-600 leading-relaxed">
+            <div className="flex-1 max-w-xl space-y-6 text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
               <div className="[&>span]:inline-block [&>span]:opacity-95">
                 <AnimatedText split={false} delay={0.25}>
                 We help you turn complex ideas into clear, scalable digital products.
@@ -265,12 +265,12 @@ Every engagement blends strategic thinking, thoughtful design, and reliable engi
                 <div className="relative inline-block overflow-hidden rounded-full">
                   <motion.a
                     href="/contact"
-                    className="group relative inline-flex items-center overflow-hidden rounded-full border border-[#EA1821] bg-white px-6 py-3 text-base font-semibold text-[#EA1821] shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md"
+                    className="group relative inline-flex items-center overflow-hidden rounded-full border-2 border-[#EA1841] bg-white dark:bg-gray-900 px-6 py-3 text-base font-semibold text-[#EA1841] dark:text-white shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <span className="relative z-10 transition-colors duration-300 group-hover:text-white">Talk to us</span>
-                    <span className="absolute inset-0 -z-0 h-0 w-full rounded-full bg-[#EA1821] transition-all duration-300 group-hover:h-full"></span>
+                    <span className="relative z-10 transition-colors duration-300 group-hover:text-white dark:group-hover:text-white">Talk to us</span>
+                    <span className="absolute inset-0 -z-0 h-0 w-full rounded-full bg-[#EA1841] transition-all duration-300 group-hover:h-full"></span>
                   </motion.a>
                 </div>
               </div>
@@ -284,9 +284,9 @@ Every engagement blends strategic thinking, thoughtful design, and reliable engi
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.3em]" style={{ color: `${accentColors.main}80` }}>What we do</p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">Simple structure, deep capability.</h2>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white md:text-4xl">Simple structure, deep capability.</h2>
           </div>
-          <p className="text-gray-600 text-lg md:max-w-md leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-300 text-lg md:max-w-md leading-relaxed">
             We keep the interface minimal so conversations stay about your business. Behind the scenes, multidisciplinary
             teams cover the detail.
           </p>
@@ -309,25 +309,25 @@ Every engagement blends strategic thinking, thoughtful design, and reliable engi
                     <span className="h-px w-8" style={{ backgroundColor: `${accentColors.main}80` }} />
                     <span className="text-md md:text-md" style={{ color: `${accentColors.main}80` }}>{capability.label}</span>
                   </div>
-                  <h3 className="text-3xl font-bold leading-tight tracking-tight text-gray-900 md:text-4xl">{capability.title}</h3>
+                  <h3 className="text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-4xl">{capability.title}</h3>
                 </div>
-                <p className="text-gray-700 text-lg md:text-xl leading-relaxed max-w-3xl">{capability.body}</p>
+                <p className="text-gray-700 dark:text-gray-200 text-lg md:text-xl leading-relaxed max-w-3xl">{capability.body}</p>
                 <div className="space-y-4">
                   {capability.bullets.map((item, index) => (
                     <li key={index} className="flex items-center gap-2 text-lg md:text-xl">
-                      <span className="text-gray-600">•</span>
-                      <span>{item}</span>
+                      <span className="text-gray-600 dark:text-gray-400">•</span>
+                      <span className="dark:text-gray-200">{item}</span>
                     </li>
                   ))}
                 </div>
                 <div className="relative inline-block overflow-hidden rounded-full">
                   <motion.button
-                    className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-full border border-[#EA1821] bg-white px-6 py-3 text-base font-semibold text-[#EA1821] shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md"
+                    className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-full border-2 border-[#EA1841] bg-white dark:bg-gray-900 px-6 py-3 text-base font-semibold text-[#EA1841] dark:text-white shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <span className="relative z-10 transition-colors duration-300 group-hover:text-white">{capability.cta}</span>
-                    <span className="absolute inset-0 -z-0 h-0 w-full rounded-full bg-[#EA1821] transition-all duration-300 group-hover:h-full"></span>
+                    <span className="relative z-10 transition-colors duration-300 group-hover:text-white dark:group-hover:text-white">{capability.cta}</span>
+                    <span className="absolute inset-0 -z-0 h-0 w-full rounded-full bg-[#EA1841] transition-all duration-300 group-hover:h-full"></span>
                   </motion.button>
                 </div>
               </div>
@@ -365,7 +365,7 @@ Every engagement blends strategic thinking, thoughtful design, and reliable engi
         <div className="mx-auto max-w-6xl px-6 py-20 space-y-12">
           <div className="max-w-3xl">
             <p className="text-sm uppercase tracking-[0.3em]" style={{ color: `${accentColors.main}80` }}>Our Approach</p>
-            <h2 className="text-3xl font-semibold text-gray-900 mt-2">What Makes VANtech Different</h2>
+            <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mt-2">What Makes VANtech Different</h2>
             <div className="w-24 h-0.5 bg-gray-200 mt-6"></div>
           </div>
           
@@ -396,8 +396,8 @@ Every engagement blends strategic thinking, thoughtful design, and reliable engi
                 <article key={title} className="space-y-4 group">
                   <Icon className="h-16 w-16 text-red-500" />
                   <div className="space-y-4">
-                    <h3 className="text-xl font-bold tracking-tight text-gray-900 md:text-2xl">{title}</h3>
-                    <p className="mt-2 text-gray-600 text-xl">{body}</p>
+                    <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white md:text-2xl">{title}</h3>
+                    <p className="mt-2 text-gray-600 dark:text-gray-300 text-xl">{body}</p>
                   </div>
                 </article>
               ))}
@@ -407,11 +407,13 @@ Every engagement blends strategic thinking, thoughtful design, and reliable engi
         </div>
       </section>
   
-      <ScrollVelocity
-  texts={['TRUST✦YOUR✦CRAZY✦IDEA✦WE✦MAKE✦IT✦REAL✦']}
-  velocity={200} 
-  className="text-[#ea1821] text-8xl font-climate-crisis"
-/>
+      <div className="bg-[#ea1821]/20  py-8">
+        <ScrollVelocity
+          texts={['TRUST✦YOUR✦CRAZY✦IDEA✦WE✦MAKE✦IT✦REAL✦']}
+          velocity={200} 
+          className="text-[#f5f5f5] text-8xl font-climate-crisis [text-shadow:_-1px_-1px_0_#ea1821,_1px_-1px_0_#ea1821,_-1px_1px_0_#ea1821,_1px_1px_0_#ea1821]"
+        />
+      </div>
 
       {/* Footer */}
       <Footer />

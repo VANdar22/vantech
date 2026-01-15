@@ -9,6 +9,8 @@ import Contact from './pages/Contact';
 import Gallery from './pages/Gallery';
 import Services from './pages/Services';
 import SplashScreen from './components/SplashScreen';
+import { ThemeProvider } from './contexts/ThemeContext';
+import ThemeToggle from './components/ThemeToggle';
 
 const menuItems = [
   { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
@@ -42,12 +44,16 @@ function App() {
   }
 
   return (
-    <Router>
-      <div className="min-h-screen w-full flex flex-col overflow-hidden">
-        {/* Fixed Navigation */}
-        <div className="fixed top-0 left-0 w-full z-50">
-          <StaggeredMenu
-            position="right"
+    <ThemeProvider>
+      <Router>
+        <div className="min-h-screen w-full flex flex-col overflow-hidden bg-background-light dark:bg-background-dark text-foreground-light dark:text-foreground-dark transition-colors duration-200">
+          {/* Fixed Navigation */}
+          <div className="fixed top-0 left-0 w-full z-50">
+            <div className="absolute right-4 top-4 z-50">
+              <ThemeToggle />
+            </div>
+            <StaggeredMenu
+              position="right"
             colors="#f5f5f5"
             items={menuItems}
             logoUrl={logo}
@@ -72,6 +78,7 @@ function App() {
         </main>
       </div>
     </Router>
+  </ThemeProvider>
   );
 }
 
